@@ -11,7 +11,9 @@
         android:layout_height="fill_parent"
         android:layout_marginRight="6dip"
         
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ic_launcher"
+        
+        android:contentDescription="@string/date_tournoi" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,16 +28,16 @@
             android:layout_weight="1"
                     
             android:gravity="center_vertical"
-            android:text="My Application" />
+            android:text="@string/lieu_tournoi" />
             
         <TextView  
             android:layout_width="fill_parent"
             android:layout_height="0dip"
             android:layout_weight="1" 
             
-            android:singleLine="true"
+            android:singleLine="false"
             android:ellipsize="marquee"
-            android:text="Simple application that shows how to use RelativeLayout" />
+            android:text="@string/details_tournoi" />
             
     </LinearLayout>
 

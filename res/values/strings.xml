@@ -4,5 +4,8 @@
     <string name="app_name">AccroDesTournois</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="date_tournoi">Date du tournoi</string>
+    <string name="details_tournoi">Détails du tournoi</string>
+    <string name="lieu_tournoi">Lieu du tournoi</string>
 
 </resources>
