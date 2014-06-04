@@ -1,5 +1,10 @@
 package com.flambaz.accrodestournois;
 
+/*
+ * Tu pourras trouver de l'aide à cette adresse :
+ * http://hmkcode.com/android-custom-listview-items-row/
+ */
+
 public class Tournoi {
 	private String lieu;
     private String details;
