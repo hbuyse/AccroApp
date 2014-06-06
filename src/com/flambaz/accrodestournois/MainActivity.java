@@ -3,15 +3,22 @@ package com.flambaz.accrodestournois;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
 public class MainActivity extends ListActivity {
+    /* URL Address
+     */
+    String url = "http://www.accro-des-tournois.com";
+    ProgressBar mProgressDialog;
+	
 	/* declare class variables
 	 */
 	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
