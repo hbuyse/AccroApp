@@ -68,18 +68,13 @@ public class MainActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		Tournoi item = (Tournoi) getListAdapter().getItem(position);
-		Toast.makeText(this, item.getDetails() + " selected", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, item.getLien(), Toast.LENGTH_LONG).show();
 	}
 	
 	
 	// Tache asynchrone permettant de parser le site web accro-des-tournois
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
     	private Elements    tournois;
-        private Elements    liens;
-        private Elements    lieux;
-        private Elements    details;
-        private Elements    jours;
-        private Elements    mois;
         
         @Override
         protected void onPreExecute() {
@@ -105,12 +100,6 @@ public class MainActivity extends ListActivity {
                 /* Récupération des valeurs depuis le HTML
                  */
                 tournois = webPage.select("li[class=elementtournoi]");
-                lieux   = webPage.select("li[class=elementtournoi] div[class=annucontent] h3");
-                details = webPage.select("li[class=elementtournoi] div[class=annucontent] div");
-                jours   = webPage.select("li[class=elementtournoi] div[class=calendrierjour]");
-                mois    = webPage.select("li[class=elementtournoi] div[class=calendriermois]");
-
-                
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -121,8 +110,13 @@ public class MainActivity extends ListActivity {
         @Override
         protected void onPostExecute(Void result) {
         	
-        	for (int i = 0; i < lieux.size(); i++){
-        		tournoiArrayList.add(new Tournoi(lieux.get(i).text(), details.get(i).text(), jours.get(i).text(), mois.get(i).text()));
+        	for (int i = 0; i < tournois.size(); i++){
+        		Element lieu     = tournois.get(i).select("div[class=annucontent] h3").first();
+        		Element detail   = tournois.get(i).select("div[class=annucontent] div").first();
+        		Element jour     = tournois.get(i).select("div[class=calendrierjour]").first();
+        		Element mois     = tournois.get(i).select("div[class=calendriermois]").first();
+        		String  lien     = tournois.get(i).select("a").first().attr("abs:href");
+        		tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien));
         	}
 
         	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter, tournoiArrayList);

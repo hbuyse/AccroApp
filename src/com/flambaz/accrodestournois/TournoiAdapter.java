@@ -74,7 +74,7 @@ public class TournoiAdapter extends ArrayAdapter<Tournoi> {
 					lieuView.setText(i.getLieu());
 				}
 				if (detailsView != null){
-					detailsView.setText(i.getDetails());
+					detailsView.setText(i.getDetail());
 				}
 				if (detailsView != null){
 					moisView.setText(i.getMois());
