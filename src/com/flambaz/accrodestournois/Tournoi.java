@@ -8,10 +8,20 @@ package com.flambaz.accrodestournois;
 public class Tournoi {
 	private String lieu;
     private String details;
-    private int    jour;
-    private int    mois;
- 
-    public Tournoi(String lieu, String details, int jour, int mois) {
+    private String jour;
+    private String mois;
+    
+    public Tournoi() {
+		// TODO Auto-generated constructor stub
+    	super();
+        this.lieu = null;
+        this.details = null;
+        this.jour = null;
+        this.mois = null;
+	}
+    
+    
+    public Tournoi(String lieu, String details, String jour, String mois) {
         super();
         this.lieu = lieu;
         this.details = details;
@@ -20,11 +30,11 @@ public class Tournoi {
     }
     // getters and setters...
     
-    public int getJour() {
+    public String getJour() {
     	return this.jour;
     }
     
-    public int getMois() {
+    public String getMois() {
     	return this.mois;
     }
     
