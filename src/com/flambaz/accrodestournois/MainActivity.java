@@ -51,8 +51,23 @@ public class MainActivity extends ListActivity {
 			// and then create objects from that data.
 			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
 			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+/*			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
+*/
 
-			m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter,tournoiArrayList);
+			m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter, tournoiArrayList);
 
 			// display the list.
 	        setListAdapter(m_adapter);
