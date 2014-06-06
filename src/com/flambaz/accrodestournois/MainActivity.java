@@ -74,7 +74,7 @@ public class MainActivity extends ListActivity {
 	
 	// Tache asynchrone permettant de parser le site web accro-des-tournois
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
-        
+    	private Elements    tournois;
         private Elements    liens;
         private Elements    lieux;
         private Elements    details;
@@ -104,6 +104,7 @@ public class MainActivity extends ListActivity {
                 
                 /* Récupération des valeurs depuis le HTML
                  */
+                tournois = webPage.select("li[class=elementtournoi]");
                 lieux   = webPage.select("li[class=elementtournoi] div[class=annucontent] h3");
                 details = webPage.select("li[class=elementtournoi] div[class=annucontent] div");
                 jours   = webPage.select("li[class=elementtournoi] div[class=calendrierjour]");
