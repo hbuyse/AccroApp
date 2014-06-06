@@ -1,65 +1,67 @@
 package com.flambaz.accrodestournois;
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import java.util.ArrayList;
+
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MainActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class MainActivity extends ListActivity {
+	/* declare class variables
+	 */
+	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
+	private Runnable viewParts;
+	private TournoiAdapter m_adapter;
+	
+	/* Called when the activity is first created.
+	 */
+    public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_main);
 
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-    }
+        // instantiate our ItemAdapter class
+        m_adapter = new TournoiAdapter(this, R.layout.adapter, tournoiArrayList);
+        setListAdapter(m_adapter);
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+        /* here we are defining our runnable thread.
+         */
+        viewParts = new Runnable(){
+        	public void run(){
+        		handler.sendEmptyMessage(0);
+        	}
+        };
         
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        // here we call the thread we just defined - it is sent to the handler below.
+        Thread thread =  new Thread(null, viewParts, "MagentoBackground");
+        thread.start();
     }
+    
+    
+    private Handler handler = new Handler() {
+		public void handleMessage(Message msg)
+		{
+			// create some objects
+			// here is where you could also request data from a server
+			// and then create objects from that data.
+			tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
+			tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+			m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter,tournoiArrayList);
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
-
+			// display the list.
+	        setListAdapter(m_adapter);
+		}
+	};
+	
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		Tournoi item = (Tournoi) getListAdapter().getItem(position);
+		Toast.makeText(this, item.getDetails() + " selected", Toast.LENGTH_LONG).show();
+	}
 }
