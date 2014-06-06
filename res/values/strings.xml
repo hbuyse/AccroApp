@@ -11,4 +11,7 @@
 
     <string name="size_jour">16</string>
     <string name="size_mois">Jun</string>
+    
+    <!-- ProgressDialog -->
+    <string name="title_progress">Recuperation des valeurs</string>
 </resources>
