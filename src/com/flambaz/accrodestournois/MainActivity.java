@@ -106,7 +106,7 @@ public class MainActivity extends ListActivity {
         		Element mois     = tournois.get(i).select("div[class=calendriermois]").first();
         		String  lien     = tournois.get(i).select("a").first().attr("abs:href");
         		
-        		int nbJour       =  tournois.get(i).select("div[class=calendrierjour]").size();
+        		int nbJour       = tournois.get(i).select("div[class=calendrierjour]").size();
         		
         		tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien, nbJour));
         	}
