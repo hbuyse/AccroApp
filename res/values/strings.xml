@@ -2,10 +2,11 @@
 <resources>
 
     <string name="app_name">AccroDesTournois</string>
+    <string name="app_name_bis">Accro Des Tournois</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="date_tournoi">Date du tournoi</string>
-    <string name="details_tournoi">Détails du tournoi</string>
+    <string name="details_tournoi">Détails du tournoi + nbJour</string>
     <string name="lieu_tournoi">Lieu du tournoi</string>
     
 
