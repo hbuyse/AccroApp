@@ -32,7 +32,6 @@ public class MainActivity extends ListActivity {
 	/* declare class variables
 	 */
 	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
-	private Runnable viewParts;
 	private TournoiAdapter m_adapter;
 	
 	
@@ -45,24 +44,13 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.fragment_main);
 
         // instantiate our ItemAdapter class
-        m_adapter = new TournoiAdapter(this, R.layout.adapter, tournoiArrayList);
-        setListAdapter(m_adapter);
 
         /* Execute Title AsyncTask
+         * create some objects
+		 * here is where you could also request data from a server
+         * and then create objects from that data.
          */
         new ParseWebSite().execute();
-        
-        
-		// create some objects
-		// here is where you could also request data from a server
-        // and then create objects from that data.
-//		tournoiArrayList.add(new Tournoi("MyItemName", "This is item #1", "14", "Sep"));
-//		tournoiArrayList.add(new Tournoi("MyItemName #2", "This is item #2", "14", "Sep"));
-
-//		m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter, tournoiArrayList);
-//
-//		// display the list.
-//        setListAdapter(m_adapter);
     }
         
 	@Override
@@ -72,7 +60,8 @@ public class MainActivity extends ListActivity {
 	}
 	
 	
-	// Tache asynchrone permettant de parser le site web accro-des-tournois
+	/* Tache asynchrone permettant de parser le site web accro-des-tournois
+	 */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
     	private Elements    tournois;
         
@@ -116,10 +105,15 @@ public class MainActivity extends ListActivity {
         		Element jour     = tournois.get(i).select("div[class=calendrierjour]").first();
         		Element mois     = tournois.get(i).select("div[class=calendriermois]").first();
         		String  lien     = tournois.get(i).select("a").first().attr("abs:href");
-        		tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien));
+        		
+        		int nbJour       =  tournois.get(i).select("div[class=calendrierjour]").size();
+        		
+        		tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien, nbJour));
         	}
-
-        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter, tournoiArrayList);
+        	
+        	/* instantiate our ItemAdapter class
+        	 */
+        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateleft, tournoiArrayList);
 
     		// display the list.
             setListAdapter(m_adapter);

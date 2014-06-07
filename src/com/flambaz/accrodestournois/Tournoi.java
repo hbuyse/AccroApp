@@ -23,10 +23,16 @@ public class Tournoi {
 	}
     
     
-    public Tournoi(String lieu, String detail, String jour, String mois, String lien) {
+    public Tournoi(String lieu, String detail, String jour, String mois, String lien, int nbJour) {
         super();
         this.lieu = lieu;
-        this.detail = detail;
+        this.detail = detail + " / " + nbJour + " ";
+        if (nbJour == 1) {
+        	this.detail += "jour";
+        }
+        else {
+        	this.detail += "jours";
+        }
         this.jour = jour;
         this.mois = mois;
         this.lien = lien;
