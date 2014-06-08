@@ -3,51 +3,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip" >
-
-    <LinearLayout
-        android:id="@+id/date_mois"
-        android:layout_width="50dip"
-        android:layout_height="fill_parent"
-        android:layout_marginRight="20dip"
-        android:layout_marginLeft="6dip"
-        android:orientation="vertical" >
-
-			<TextView
-		        android:id="@+id/mois"
-		        android:layout_width="fill_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="4dip"
-		        android:gravity="center"
-		        android:textSize="16sp"
-		        android:textColor="@color/color_jour"
-		        android:textStyle="bold"
-		        android:text="@string/size_jour"
-		        android:background="@color/color_mois" />
-
-			<TextView
-		        android:id="@+id/date"
-		        android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-		        android:gravity="center"
-		        android:textSize="16sp"
-		        android:textColor="@color/color_mois"
-		        android:textStyle="bold"
-		        android:text="@string/size_mois"
-		        android:background="@color/color_jour" />
-    </LinearLayout>
+    android:padding="@dimen/paddingAdapter"
+    android:id="@+id/relativeLayout" >
+    
+<!--     android:background="@+id/type_tournoi" -->
 
     <TextView
         android:id="@+id/firstLine"
         android:layout_width="fill_parent"
-        android:layout_height="30dip"
-        android:layout_alignParentRight="true"
+        android:layout_height="@dimen/hauteurJour"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/date_mois"
         android:gravity="center_vertical"
         android:text="@string/lieu_tournoi"
-        android:textSize="16sp" />
+        android:textSize="@dimen/fontJour" />
 
 	<TextView
         android:id="@+id/secondLine"
@@ -55,11 +25,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/firstLine"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/date_mois"
+        android:layout_alignParentLeft="true"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="@string/details_tournoi"
-        android:textSize="12sp" />
+        android:textSize="@dimen/fontMois" />
 
+	<LinearLayout
+	    android:id="@+id/date_mois"
+	    android:layout_width="@dimen/largeurDateMois"
+	    android:layout_height="fill_parent"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentTop="true"
+	    android:orientation="vertical" >
+
+	    <ListView 
+	        android:id="@+id/liste_date"
+	        android:layout_width="@dimen/largeurDateMois"
+            android:layout_height="fill_parent"/> 
+	        
+    </LinearLayout>
 </RelativeLayout> 
