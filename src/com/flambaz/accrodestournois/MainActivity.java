@@ -2,8 +2,6 @@ package com.flambaz.accrodestournois;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,13 +11,9 @@ import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -113,7 +107,7 @@ public class MainActivity extends ListActivity {
         	
         	/* instantiate our ItemAdapter class
         	 */
-        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateleft, tournoiArrayList);
+        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateright, tournoiArrayList);
 
     		// display the list.
             setListAdapter(m_adapter);
