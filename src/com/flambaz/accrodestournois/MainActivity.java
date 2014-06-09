@@ -107,7 +107,7 @@ public class MainActivity extends ListActivity {
         	
         	/* instantiate our ItemAdapter class
         	 */
-        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateright, tournoiArrayList);
+        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateleft, tournoiArrayList);
 
     		// display the list.
             setListAdapter(m_adapter);

@@ -46,7 +46,7 @@ public class TournoiAdapter extends ArrayAdapter<Tournoi> {
     		 */ 
     		if (rowView == null) {
     			LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-    			rowView = inflater.inflate(R.layout.adapter_dateright, null);
+    			rowView = inflater.inflate(R.layout.adapter_dateleft, null);
     		}
     		
     		/* Recall that the variable position is sent in as an argument to this method.

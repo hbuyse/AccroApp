@@ -45,7 +45,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
         android:layout_toRightOf="@id/date_mois"
-        android:gravity="right|center_vertical"
+        android:gravity="center_vertical"
         android:text="@string/lieu_tournoi"
         android:textSize="16sp" />
 
@@ -59,7 +59,7 @@
         android:layout_toRightOf="@id/date_mois"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:gravity="right|center_vertical"
+        android:gravity="center_vertical"
         android:text="@string/details_tournoi"
         android:textSize="12sp" />
 
