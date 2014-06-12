@@ -62,7 +62,9 @@ public class TournoiListFragment extends ListFragment {
 	
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-		/* Envoi de l'URL du tournoi sur lequel nous avons cliqué
+		super.onListItemClick(l, v, position, id);
+    	
+    	/* Envoi de l'URL du tournoi sur lequel nous avons cliqué
 		 */
 		Intent intent = new Intent(getActivity(), TournoiActivity.class);
 		intent.putExtra("url_tournoi", tournoiArrayList.get(position).getLien());

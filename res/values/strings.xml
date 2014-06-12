@@ -13,6 +13,6 @@
 
     <!-- ProgressDialog -->
     <string name="title_progress">Recuperation des valeurs</string>
-    <string name="title_activity_tournoi">Tounoi</string>
+    <string name="title_activity_tournoi">Tournoi</string>
 
 </resources>
