@@ -1,130 +1,50 @@
 package com.flambaz.accrodestournois;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import android.app.ListActivity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
 
 
-public class MainActivity extends ListActivity {
-	/* URL Address
-     */
-    String url = "http://www.accro-des-tournois.com";
-    ProgressDialog mProgressDialog;
-	
-    /* URL qui sera passé à la prochaine vue
-     */
-//    public static String url_tournoi;
-    
-	/* declare class variables
-	 */
-	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
-	private TournoiAdapter m_adapter;
-	
-	
+public class MainActivity extends Activity {
 	
 	/* Called when the activity is first created.
 	 */
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main);
-
-        // instantiate our ItemAdapter class
-
-        /* Execute Title AsyncTask
-         * create some objects
-		 * here is where you could also request data from a server
-         * and then create objects from that data.
-         */
-        new ParseWebSite().execute();
-    }
+        setContentView(R.layout.activity_tournoi);
         
+        // Create the list fragment and add it as our sole content.
+        if (getFragmentManager().findFragmentById(R.id.container) == null) {
+            TournoiListFragment list = new TournoiListFragment();
+            getFragmentManager().beginTransaction().add(R.id.container, list).commit();
+        }
+    }
+    
+    
+    
+    
 	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		/* Envoi de l'URL du tournoi sur lequel nous avons cliqué
-		 */
-		Intent intent = new Intent(this, TournoiActivity.class);
-		intent.putExtra("url_tournoi", tournoiArrayList.get(position).getLien());
-		startActivity(intent);
+	public boolean onCreateOptionsMenu(Menu menu) {
 
-//		Tournoi item = (Tournoi) getListAdapter().getItem(position);
-//		Toast.makeText(this, item.getLien(), Toast.LENGTH_LONG).show();
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
 	}
 	
 	
-	/* Tache asynchrone permettant de parser le site web accro-des-tournois
-	 */
-    private class ParseWebSite extends AsyncTask<Void, Void, Void> {
-    	private Elements    tournois;
-        
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setTitle(R.string.title_progress);
-            mProgressDialog.setMessage("Chargement...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
- 
-        @Override
-        protected Void doInBackground(Void... params) {
-            try {
-                /* Lancement des logs 
-                 */
-                Log.d("MainActivity", "Download ");
-                
-                /* Connection au site web défini par 'url'
-                 */
-                Document webPage = Jsoup.connect(url).get();
-                
-                /* Récupération des valeurs depuis le HTML
-                 */
-                tournois = webPage.select("li[class=elementtournoi]");
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
- 
-        @Override
-        protected void onPostExecute(Void result) {
-        	
-        	for (int i = 0; i < tournois.size(); i++){
-        		Element lieu     = tournois.get(i).select("div[class=annucontent] h3").first();
-        		Element detail   = tournois.get(i).select("div[class=annucontent] div").first();
-        		Element jour     = tournois.get(i).select("div[class=calendrierjour]").first();
-        		Element mois     = tournois.get(i).select("div[class=calendriermois]").first();
-        		String  lien     = tournois.get(i).select("a").first().attr("abs:href");
-        		
-        		int nbJour       = tournois.get(i).select("div[class=calendrierjour]").size();
-        		
-        		tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien, nbJour));
-        	}
-        	
-        	/* instantiate our ItemAdapter class
-        	 */
-        	m_adapter = new TournoiAdapter(MainActivity.this, R.layout.adapter_dateleft, tournoiArrayList);
-
-    		// display the list.
-            setListAdapter(m_adapter);
-            
-            mProgressDialog.dismiss();
-        }
-    }
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }
