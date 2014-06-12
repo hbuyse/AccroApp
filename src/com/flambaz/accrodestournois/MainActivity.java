@@ -2,6 +2,7 @@ package com.flambaz.accrodestournois;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,6 +10,7 @@ import org.jsoup.select.Elements;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,11 +20,15 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ListActivity {
-    /* URL Address
+	/* URL Address
      */
     String url = "http://www.accro-des-tournois.com";
     ProgressDialog mProgressDialog;
 	
+    /* URL qui sera passé à la prochaine vue
+     */
+//    public static String url_tournoi;
+    
 	/* declare class variables
 	 */
 	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
@@ -49,8 +55,14 @@ public class MainActivity extends ListActivity {
         
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		Tournoi item = (Tournoi) getListAdapter().getItem(position);
-		Toast.makeText(this, item.getLien(), Toast.LENGTH_LONG).show();
+		/* Envoi de l'URL du tournoi sur lequel nous avons cliqué
+		 */
+		Intent intent = new Intent(this, TournoiActivity.class);
+		intent.putExtra("url_tournoi", tournoiArrayList.get(position).getLien());
+		startActivity(intent);
+
+//		Tournoi item = (Tournoi) getListAdapter().getItem(position);
+//		Toast.makeText(this, item.getLien(), Toast.LENGTH_LONG).show();
 	}
 	
 	
