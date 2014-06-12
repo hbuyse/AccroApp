@@ -8,11 +8,11 @@
     <string name="date_tournoi">Date du tournoi</string>
     <string name="details_tournoi">Détails du tournoi + nbJour</string>
     <string name="lieu_tournoi">Lieu du tournoi</string>
-    
-
     <string name="size_jour">16</string>
     <string name="size_mois">Jun</string>
-    
+
     <!-- ProgressDialog -->
     <string name="title_progress">Recuperation des valeurs</string>
+    <string name="title_activity_tournoi">Tounoi</string>
+
 </resources>
