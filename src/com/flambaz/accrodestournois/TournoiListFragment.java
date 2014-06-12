@@ -2,7 +2,6 @@ package com.flambaz.accrodestournois;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -17,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class TournoiListFragment extends ListFragment {
 	/* URL Address
@@ -47,20 +45,11 @@ public class TournoiListFragment extends ListFragment {
 		 * here is where you could also request data from a server
 		 * and then create objects from that data.
 		 */
-	    //new ParseWebSite().execute();
-		
-		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
-		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
-		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
-		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
-		
-	    /* instantiate our ItemAdapter class
-    	 */
-	    TournoiListAdapter m_adapter = new TournoiListAdapter(getActivity(), R.layout.row, tournoiArrayList);
-	    setListAdapter(m_adapter);
+	    new ParseWebSite().execute();
 	}
 	
 	
+
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {  
@@ -126,10 +115,30 @@ public class TournoiListFragment extends ListFragment {
             catch (IOException e) {
                 e.printStackTrace();
             }
-            
-            mProgressDialog.dismiss();
-            
+
             return null;
+        }
+        
+        
+        
+        @Override
+        protected void onPostExecute(Void result) {
+        	super.onPostExecute(result);
+        	
+        	/* Extinction de la boite de dialogue
+        	 */
+        	if (mProgressDialog.isShowing()) {
+        		mProgressDialog.dismiss();
+            }
+        	
+        	
+    	    /* Instantiate our ItemAdapter class
+    	     * 
+    	     * Il faut laisser le setter de la ListAdapter dans PostExecute sinon
+    	     * il se peut que l'activité se termine et s'affiche sans que le thread ne soit terminé.
+        	 */
+    	    TournoiListAdapter m_adapter = new TournoiListAdapter(getActivity(), R.layout.row, tournoiArrayList);
+    	    setListAdapter(m_adapter);
         }
     }
 }
