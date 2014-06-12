@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class TournoiAdapter extends ArrayAdapter<Tournoi> {
+public class TournoiListAdapter extends ArrayAdapter<Tournoi> {
 	 
         @SuppressWarnings("unused")
 		private final Context context;
@@ -21,7 +21,7 @@ public class TournoiAdapter extends ArrayAdapter<Tournoi> {
     	 * the only variable we care about now is ArrayList<Item> objects,
     	 * because it is the list of objects we want to display.
     	 */
-        public TournoiAdapter(Context context, int textViewResourceId, ArrayList<Tournoi> tournoiArrayList) {
+        public TournoiListAdapter(Context context, int textViewResourceId, ArrayList<Tournoi> tournoiArrayList) {
  
             super(context, textViewResourceId, tournoiArrayList);
  
