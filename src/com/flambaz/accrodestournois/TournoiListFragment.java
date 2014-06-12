@@ -30,9 +30,7 @@ public class TournoiListFragment extends ListFragment {
 	 */
 	private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
 	
-	
-	
-	
+		
 	public TournoiListFragment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -49,14 +47,18 @@ public class TournoiListFragment extends ListFragment {
 		 * here is where you could also request data from a server
 		 * and then create objects from that data.
 		 */
-	    new ParseWebSite().execute();
+	    //new ParseWebSite().execute();
+		
+		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
+		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
+		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
+		tournoiArrayList.add(new Tournoi("Toto", "3x3","26", "Sep", "http://", 3));
 		
 	    /* instantiate our ItemAdapter class
     	 */
 	    TournoiListAdapter m_adapter = new TournoiListAdapter(getActivity(), R.layout.row, tournoiArrayList);
 	    setListAdapter(m_adapter);
 	}
-	
 	
 	
 	
