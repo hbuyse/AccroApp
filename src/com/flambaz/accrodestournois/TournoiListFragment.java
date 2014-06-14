@@ -67,7 +67,8 @@ public class TournoiListFragment extends ListFragment {
     	/* Envoi de l'URL du tournoi sur lequel nous avons cliqué
 		 */
 		Intent intent = new Intent(getActivity(), TournoiActivity.class);
-		intent.putExtra("url_tournoi", tournoiArrayList.get(position).getLien());
+		intent.putExtra("url_tournoi" , tournoiArrayList.get(position).getLien());
+		intent.putExtra("lieu_tournoi", tournoiArrayList.get(position).getLieu());
 		startActivity(intent);
     }
     

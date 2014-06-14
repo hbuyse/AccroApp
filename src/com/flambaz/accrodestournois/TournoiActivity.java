@@ -22,8 +22,9 @@ public class TournoiActivity extends Activity {
 		
 		// Get the message from the intent
 		Intent intent = getIntent();
-		String url_tournoi = intent.getExtras().getString("url_tournoi");
-		setTitle(url_tournoi);
+		String url_tournoi  = intent.getExtras().getString("url_tournoi");
+		String lieu_tournoi = intent.getExtras().getString("lieu_tournoi");
+		setTitle(lieu_tournoi);
 		
 		setContentView(R.layout.fragment_tournoi);
 		
