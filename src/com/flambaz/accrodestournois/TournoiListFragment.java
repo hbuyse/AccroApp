@@ -84,7 +84,7 @@ public class TournoiListFragment extends ListFragment {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setTitle(R.string.title_progress);
+            mProgressDialog.setTitle(R.string.main_progress);
             mProgressDialog.setMessage("Chargement...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
