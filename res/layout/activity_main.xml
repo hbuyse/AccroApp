@@ -1,15 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/containerMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.flambaz.accrodestournois.MainActivity"
-    tools:ignore="MergeRootFrame">
-    
-    <fragment
-      android:name="com.flambaz.accrodestournois.TournoiFragment"
-      android:id="@+id/fragment1"
-      android:layout_width="0px"
-      android:layout_height="match_parent" />
-    
-</FrameLayout>
+    tools:ignore="MergeRootFrame" />

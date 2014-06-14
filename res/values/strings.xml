@@ -12,7 +12,8 @@
     <string name="size_mois">Jun</string>
 
     <!-- ProgressDialog -->
-    <string name="title_progress">Recuperation des valeurs</string>
+    <string name="main_progress">Récuperation de la liste</string>
     <string name="title_activity_tournoi">Tournoi</string>
+    <string name="tournoi_progress">Récupération du tournoi</string>
 
 </resources>
