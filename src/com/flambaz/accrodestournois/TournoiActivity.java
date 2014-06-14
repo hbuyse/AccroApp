@@ -19,11 +19,15 @@ public class TournoiActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_tournoi);
 		
 		// Get the message from the intent
 		Intent intent = getIntent();
 		String url_tournoi = intent.getExtras().getString("url_tournoi");
+		setTitle(url_tournoi);
+		
+		setContentView(R.layout.fragment_tournoi);
+		
+
 //		
 //	    // Create the text view
 	    TextView textView = (TextView) findViewById(R.id.lieu_tournoiSel);
