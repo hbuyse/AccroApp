@@ -13,17 +13,15 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tournoi);
+        setContentView(R.layout.activity_main);
         
         // Create the list fragment and add it as our sole content.
-        if (getFragmentManager().findFragmentById(R.id.container) == null) {
+        if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
             TournoiListFragment list = new TournoiListFragment();
-            getFragmentManager().beginTransaction().add(R.id.container, list).commit();
+            getFragmentManager().beginTransaction().add(R.id.containerMain, list).commit();
         }
     }
-    
-    
-    
+
     
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
