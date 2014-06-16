@@ -6,21 +6,21 @@ package com.flambaz.accrodestournois;
  */
 
 public class Tournoi {
-	private String lieu;
+    private String lieu;
     private String detail;
     private String jour;
     private String mois;
     private String lien;
     
     public Tournoi() {
-		// TODO Auto-generated constructor stub
-    	super();
+        // TODO Auto-generated constructor stub
+        super();
         this.lieu = null;
         this.detail = null;
         this.jour = null;
         this.mois = null;
         this.lien = null;
-	}
+    }
     
     
     public Tournoi(String lieu, String detail, String jour, String mois, String lien, int nbJour) {
@@ -28,10 +28,10 @@ public class Tournoi {
         this.lieu = lieu;
         this.detail = detail + " / " + nbJour + " ";
         if (nbJour == 1) {
-        	this.detail += "jour";
+            this.detail += "jour";
         }
         else {
-        	this.detail += "jours";
+            this.detail += "jours";
         }
         this.jour = jour;
         this.mois = mois;
@@ -40,22 +40,22 @@ public class Tournoi {
     // getters and setters...
     
     public String getJour() {
-    	return this.jour;
+        return this.jour;
     }
     
     public String getMois() {
-    	return this.mois;
+        return this.mois;
     }
     
     public String getLieu() {
-    	return this.lieu;
+        return this.lieu;
     }
     
     public String getDetail() {
-    	return this.detail;
+        return this.detail;
     }
     
     public String getLien() {
-    	return this.lien;
+        return this.lien;
     }
 }
