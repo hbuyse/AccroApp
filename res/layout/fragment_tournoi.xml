@@ -1,5 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,9 +11,27 @@
     android:id="@+id/layoutTournoi" >
     
     <TextView
-        android:id="@+id/ifTitle"
+        android:id="@+id/libelleTournoi"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_world"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/libelleTournoi"
+        android:textSize="24sp" />
+    
+    <TextView
+        android:id="@+id/centreDivers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/centreDivers"
+        android:layout_marginTop="5sp" />
+    
+    <TextView
+        android:id="@+id/publicateur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/publiePar"
+        android:layout_marginTop="5sp" />
 
-</RelativeLayout>
+</LinearLayout>

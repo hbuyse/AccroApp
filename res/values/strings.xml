@@ -15,5 +15,15 @@
     <string name="main_progress">Récuperation de la liste</string>
     <string name="title_activity_tournoi">Tournoi</string>
     <string name="tournoi_progress">Récupération du tournoi</string>
+    
+    <!-- Tournoi Fragment -->
+    <string name="libelleTournoi">Libellé du tournoi</string>
+    <string name="centreDivers">Type de terrain et type de tournoi</string>
+    <string name="publiePar">Publicateur</string>
+    <!--  <string name="title_activity_tournoi">Tournoi</string>
+    <string name="title_activity_tournoi">Tournoi</string>
+    <string name="title_activity_tournoi">Tournoi</string>
+    <string name="title_activity_tournoi">Tournoi</string>
+    -->
 
 </resources>
