@@ -10,13 +10,16 @@
     tools:context="com.flambaz.accrodestournois.TournoiActivity$PlaceholderFragment"
     android:id="@+id/layoutTournoi" >
     
+    
+    <!-- HEADER -->
     <TextView
         android:id="@+id/libelleTournoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/libelleTournoi"
-        android:textSize="24sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
     
     <TextView
         android:id="@+id/centreDivers"
@@ -24,14 +27,83 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/centreDivers"
-        android:layout_marginTop="5sp" />
+        android:layout_marginTop="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    
+    
+    <!-- INFORMATIONS COMPLÉMENTAIRES -->
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/infosComp"
+        android:layout_marginTop="15sp"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+    
+    <TextView
+        android:id="@+id/infosComp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/infos"
+        android:layout_marginTop="5sp"
+        android:lineSpacingExtra="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    
+    
+    <!-- CONTACT -->
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/contact"
+        android:layout_marginTop="15sp"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
+    
+    <TextView
+        android:id="@+id/contactName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/contactName"
+        android:layout_marginTop="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    
+    <TextView
+        android:id="@+id/contactPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/contactPhone"
+        android:layout_marginTop="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    
+    <TextView
+        android:id="@+id/contactWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/contactWebsite"
+        android:layout_marginTop="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+    
+    
     
     <TextView
         android:id="@+id/publicateur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="end"
         android:text="@string/publiePar"
-        android:layout_marginTop="5sp" />
+        android:layout_marginTop="10sp"
+        android:textSize="10sp"
+        android:textStyle="italic" />
 
 </LinearLayout>
