@@ -93,6 +93,16 @@
         android:layout_marginTop="5sp"
         android:textSize="14sp"
         android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/contactMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/contactMail"
+        android:layout_marginTop="5sp"
+        android:textSize="14sp"
+        android:textStyle="normal" />
     
     
     
