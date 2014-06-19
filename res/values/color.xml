@@ -2,5 +2,8 @@
 <resources>
     <color name="color_jour">#FFFFFF</color>
     <color name="color_mois">#0080FF</color>
-    <color name="background_row">#FF8400</color>
+    <color name="background_list">#FF8400</color>
+    <color name="background_row">#FAA90C</color>
+    <color name="font">#474747</color>
+
 </resources>
