@@ -2,4 +2,5 @@
 <resources>
     <color name="color_jour">#FFFFFF</color>
     <color name="color_mois">#0080FF</color>
+    <color name="background_row">#FF8400</color>
 </resources>
