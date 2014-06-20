@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_jour">#FFFFFF</color>
-    <color name="color_mois">#0080FF</color>
+    <color name="background_day">#FFFFFF</color>
+    <color name="background_month">#0080FF</color>
     <color name="background_list">#FF8400</color>
     <color name="background_row">#FAA90C</color>
+
+    <color name="font_month">#FFFFFF</color>
+    <color name="font_day">#0080FF</color>
     <color name="font">#474747</color>
 
 </resources>

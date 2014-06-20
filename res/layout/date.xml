@@ -11,10 +11,10 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="@dimen/margeDateHaut"
-	    android:background="@color/color_mois"
+	    android:background="@drawable/date_shape"
 	    android:gravity="center"
 	    android:text="@string/size_jour"
-	    android:textColor="@color/color_jour"
+	    android:textColor="@color/font_month"
 	    android:textSize="@dimen/fontJour"
 	    android:textStyle="bold" />
 
@@ -24,10 +24,10 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentRight="true"
 	    android:layout_below="@+id/mois"
-	    android:background="@color/color_jour"
+	    android:background="@color/background_day"
 	    android:gravity="center"
 	    android:text="@string/size_mois"
-	    android:textColor="@color/color_mois"
+	    android:textColor="@color/font_day"
 	    android:textSize="@dimen/fontMois"
 	    android:textStyle="bold" />
 
