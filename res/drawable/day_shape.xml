@@ -7,7 +7,7 @@
     <solid android:color="@color/background_month" />
 
     <corners
-        android:topLeftRadius="4dip"
-        android:topRightRadius="4dip"
+        android:topLeftRadius="5dip"
+        android:topRightRadius="5dip"
     />
 </shape>
