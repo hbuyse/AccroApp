@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AccroDesTournois</string>
+    <string name="app_name_bis">Accro Des Tournois</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="date_tournoi">Date du tournoi</string>
+    <string name="details_tournoi">Détails du tournoi + nbJour</string>
+    <string name="lieu_tournoi">Lieu du tournoi</string>
+    <string name="size_jour">16</string>
+    <string name="size_mois">Juin</string>
+
+    
+    <!-- ProgressDialog -->
+    <string name="main_progress">Récuperation de la liste</string>
+    <string name="title_activity_tournoi">Tournoi</string>
+    <string name="tournoi_progress">Récupération du tournoi</string>
+    
+    
+    <!-- Tournoi Fragment -->
+    <string name="libelleTournoi">Titre du tournoi</string>
+    <string name="centreDivers">Type de terrain et type de tournoi</string>
+    <string name="publiePar">Publicateur</string>
+    
+    
+    <!-- INFORMATIONS COMPLÉMENTAIRES -->
+    <string name="infosComp"><u>Infos complémentaires</u></string>
+    <string name="infos"    >
+        Heure de début de tournoi\nToto
+    </string>
+    
+    
+    <!-- CONTACT -->
+    <string name="contact"><u>Contact</u></string>
+    <string name="contactName">Nom du contact</string>
+    <string name="contactPhone">06 00 00 00 00</string>
+    <string name="contactWebsite">Site du tournoi</string>
+    <string name="contactMail">Envoyer un message</string>
+    <!-- <string name="title_activity_tournoi">Tournoi</string>
+    <string name="title_activity_tournoi">Tournoi</string>
+    -->
+
+</resources>
