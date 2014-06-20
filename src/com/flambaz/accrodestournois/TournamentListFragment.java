@@ -85,7 +85,7 @@ public class TournamentListFragment extends ListFragment {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(getActivity());
             mProgressDialog.setTitle(R.string.mainProgress);
-            mProgressDialog.setMessage("Chargement...");
+            mProgressDialog.setMessage(getString(R.string.loading));
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
@@ -109,7 +109,7 @@ public class TournamentListFragment extends ListFragment {
                     Element month  = tournaments.get(i).select("div[class=calendriermois]").first();
                     String  link   = tournaments.get(i).select("a").first().attr("abs:href");
                     
-                    int nbJour       = tournaments.get(i).select("div[class=calendrierjour]").size();
+                    int nbJour     = tournaments.get(i).select("div[class=calendrierjour]").size();
                     
                     tournoiArrayList.add(new Tournament(place.text(), detail.text(), day.text(), month.text(), link, nbJour));
                 }

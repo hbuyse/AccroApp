@@ -27,7 +27,7 @@
         </activity>
         
         <activity
-            android:name="com.flambaz.accrodestournois.TournoiActivity"
+            android:name="com.flambaz.accrodestournois.TournamentActivity"
             android:label="@string/titleActivityTournament"
             android:parentActivityName="com.flambaz.accrodestournois.MainActivity" >
             <meta-data

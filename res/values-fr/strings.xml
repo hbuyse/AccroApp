@@ -8,8 +8,8 @@
     <string name="tournamentDate">Date du tournoi</string>
     <string name="tournamentDetails">Détails du tournoi + nbJour</string>
     <string name="tournamentPlace">Lieu du tournoi</string>
-    <string name="size_jour">16</string>
-    <string name="size_mois">Juin</string>
+    <string name="sizeDay">16</string>
+    <string name="sizeMonth">Juin</string>
 
     
     <!-- ProgressDialog -->

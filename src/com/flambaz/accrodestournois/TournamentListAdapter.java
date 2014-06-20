@@ -71,7 +71,7 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                  * if not, assign some text!
                  */
                 if (placeView != null){
-                	placeView.setText(i.getLink());
+                	placeView.setText(i.getPlace());
                 }
                 if (detailsView != null){
                     detailsView.setText(i.getDetail());
