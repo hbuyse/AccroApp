@@ -15,9 +15,10 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        // Create the list fragment and add it as our sole content.
+        /* Create the list fragment and add it as our sole content.
+         */
         if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
-            TournoiListFragment list = new TournoiListFragment();
+            TournamentListFragment list = new TournamentListFragment();
             getFragmentManager().beginTransaction().add(R.id.containerMain, list).commit();
         }
     }
@@ -26,7 +27,8 @@ public class MainActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // Inflate the menu; this adds items to the action bar if it is present.
+        /* Inflate the menu; this adds items to the action bar if it is present.
+         */
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -36,9 +38,10 @@ public class MainActivity extends FragmentActivity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        /* Handle action bar item clicks here. The action bar will
+         * automatically handle clicks on the Home/Up button, so long
+         * as you specify a parent activity in AndroidManifest.xml.
+         */
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;

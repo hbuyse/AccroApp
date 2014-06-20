@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class TournoiListFragment extends ListFragment {
+public class TournamentListFragment extends ListFragment {
     /* URL Address
      */
     static String url = "http://www.accro-des-tournois.com";
@@ -26,10 +26,10 @@ public class TournoiListFragment extends ListFragment {
     
     /* declare class variables
      */
-    private ArrayList<Tournoi> tournoiArrayList = new ArrayList<Tournoi>();
+    private ArrayList<Tournament> tournoiArrayList = new ArrayList<Tournament>();
     
         
-    public TournoiListFragment() {
+    public TournamentListFragment() {
         // TODO Auto-generated constructor stub
     }
     
@@ -66,9 +66,9 @@ public class TournoiListFragment extends ListFragment {
         
         /* Envoi de l'URL du tournoi sur lequel nous avons cliqué
          */
-        Intent intent = new Intent(getActivity(), TournoiActivity.class);
-        intent.putExtra("url_tournoi" , tournoiArrayList.get(position).getLien());
-        intent.putExtra("lieu_tournoi", tournoiArrayList.get(position).getLieu());
+        Intent intent = new Intent(getActivity(), TournamentActivity.class);
+        intent.putExtra("url_tournament" , tournoiArrayList.get(position).getLink());
+        intent.putExtra("place_tournament", tournoiArrayList.get(position).getPlace());
         startActivity(intent);
     }
     
@@ -78,13 +78,13 @@ public class TournoiListFragment extends ListFragment {
     /* Tache asynchrone permettant de parser le site web accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
-        private Elements    tournois;
+        private Elements    tournaments;
         
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setTitle(R.string.main_progress);
+            mProgressDialog.setTitle(R.string.mainProgress);
             mProgressDialog.setMessage("Chargement...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
@@ -100,18 +100,18 @@ public class TournoiListFragment extends ListFragment {
                 
                 /* Récupération des valeurs depuis le HTML
                  */
-                tournois = webPage.select("li[class=elementtournoi]");
+                tournaments = webPage.select("li[class=elementtournoi]");
                 
-                for (int i = 0; i < tournois.size(); i++){
-                    Element lieu     = tournois.get(i).select("div[class=annucontent] h3").first();
-                    Element detail   = tournois.get(i).select("div[class=annucontent] div").first();
-                    Element jour     = tournois.get(i).select("div[class=calendrierjour]").first();
-                    Element mois     = tournois.get(i).select("div[class=calendriermois]").first();
-                    String  lien     = tournois.get(i).select("a").first().attr("abs:href");
+                for (int i = 0; i < tournaments.size(); i++){
+                    Element place  = tournaments.get(i).select("div[class=annucontent] h3").first();
+                    Element detail = tournaments.get(i).select("div[class=annucontent] div").first();
+                    Element day    = tournaments.get(i).select("div[class=calendrierjour]").first();
+                    Element month  = tournaments.get(i).select("div[class=calendriermois]").first();
+                    String  link   = tournaments.get(i).select("a").first().attr("abs:href");
                     
-                    int nbJour       = tournois.get(i).select("div[class=calendrierjour]").size();
+                    int nbJour       = tournaments.get(i).select("div[class=calendrierjour]").size();
                     
-                    tournoiArrayList.add(new Tournoi(lieu.text(), detail.text(), jour.text(), mois.text(), lien, nbJour));
+                    tournoiArrayList.add(new Tournament(place.text(), detail.text(), day.text(), month.text(), link, nbJour));
                 }
                 
             }
@@ -140,7 +140,7 @@ public class TournoiListFragment extends ListFragment {
              * Il faut laisser le setter de la ListAdapter dans PostExecute sinon
              * il se peut que l'activité se termine et s'affiche sans que le thread ne soit terminé.
              */
-            TournoiListAdapter m_adapter = new TournoiListAdapter(getActivity(), R.layout.row, tournoiArrayList);
+            TournamentListAdapter m_adapter = new TournamentListAdapter(getActivity(), R.layout.row, tournoiArrayList);
             setListAdapter(m_adapter);
         }
     }

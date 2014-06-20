@@ -14,7 +14,7 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_toLeftOf="@id/date_mois"
         android:gravity="center_vertical"
-        android:text="@string/lieu_tournoi"
+        android:text="@string/tournamentPlace"
         android:textSize="16sp" />
 
 	<TextView
@@ -27,7 +27,7 @@
         android:layout_toLeftOf="@id/date_mois"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:text="@string/details_tournoi"
+        android:text="@string/tournamentDetails"
         android:textSize="12sp" />
 
 	<LinearLayout
@@ -39,25 +39,25 @@
 	    android:orientation="vertical" >
 
 	    <TextView
-	        android:id="@+id/mois"
+	        android:id="@+id/month"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="4dip"
-	        android:background="@color/color_mois"
+	        android:background="@color/background_month"
 	        android:gravity="center"
 	        android:text="@string/size_jour"
-	        android:textColor="@color/color_jour"
+	        android:textColor="@color/font_month"
 	        android:textSize="16sp"
 	        android:textStyle="bold" />
 
 	    <TextView
-	        android:id="@+id/date"
+	        android:id="@+id/day"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:background="@color/color_jour"
+	        android:background="@color/background_day"
 	        android:gravity="center"
 	        android:text="@string/size_mois"
-	        android:textColor="@color/color_mois"
+	        android:textColor="@color/font_day"
 	        android:textSize="16sp"
 	        android:textStyle="bold" />
 	</LinearLayout>

@@ -5,57 +5,58 @@ package com.flambaz.accrodestournois;
  * http://hmkcode.com/android-custom-listview-items-row/
  */
 
-public class Tournoi {
-    private String lieu;
+public class Tournament {
+    private String place;
     private String detail;
-    private String jour;
-    private String mois;
-    private String lien;
+    private String day;
+    private String month;
+    private String link;
     
-    public Tournoi() {
+    public Tournament() {
         // TODO Auto-generated constructor stub
         super();
-        this.lieu = null;
+        this.place = null;
         this.detail = null;
-        this.jour = null;
-        this.mois = null;
-        this.lien = null;
+        this.day = null;
+        this.month = null;
+        this.link = null;
     }
     
     
-    public Tournoi(String lieu, String detail, String jour, String mois, String lien, int nbJour) {
+    public Tournament(String place, String detail, String day, String month, String link, int nbday) {
         super();
-        this.lieu = lieu;
-        this.detail = detail + " / " + nbJour + " ";
-        if (nbJour == 1) {
-            this.detail += "jour";
+        this.place = place;
+        this.detail = detail + " / " + nbday + " ";
+        if (nbday == 1) {
+            this.detail += "day";
         }
         else {
-            this.detail += "jours";
+            this.detail += "days";
         }
-        this.jour = jour;
-        this.mois = mois;
-        this.lien = lien;
-    }
-    // getters and setters...
-    
-    public String getJour() {
-        return this.jour;
+        this.day = day;
+        this.month = month;
+        this.link = link;
     }
     
-    public String getMois() {
-        return this.mois;
+    /* Getters
+     */
+    public String getDay() {
+        return this.day;
     }
     
-    public String getLieu() {
-        return this.lieu;
+    public String getMonth() {
+        return this.month;
+    }
+    
+    public String getPlace() {
+        return this.place;
     }
     
     public String getDetail() {
         return this.detail;
     }
     
-    public String getLien() {
-        return this.lien;
+    public String getLink() {
+        return this.link;
     }
 }
