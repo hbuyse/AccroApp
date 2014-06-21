@@ -24,9 +24,9 @@ public class TournamentActivity extends FragmentActivity {
         
         /* Create the list fragment and add it as our sole content.
          */
-        if (getFragmentManager().findFragmentById(R.id.containerTournoi) == null) {
+        if (getFragmentManager().findFragmentById(R.id.containerTournament) == null) {
             TournamentFragment tournoi = new TournamentFragment();
-            getFragmentManager().beginTransaction().add(R.id.containerTournoi, tournoi).commit();
+            getFragmentManager().beginTransaction().add(R.id.containerTournament, tournoi).commit();
         }
     }
 
