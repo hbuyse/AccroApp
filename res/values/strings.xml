@@ -22,8 +22,8 @@
     <!-- Tournoi Fragment -->
     <string name="subtitleTournament">Tournament name</string>
     <string name="variousInfos">Type of surface and type of tournament</string>
-    <string name="publisher">Publisher</string>
-    
+    <string name="publisher">Tournament published by <b>publisher</b></string>
+
     
     <!-- INFORMATIONS COMPLÉMENTAIRES -->
     <string name="additionalInfo"><u>Additional informations</u></string>

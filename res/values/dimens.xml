@@ -20,4 +20,11 @@
     <dimen name="fontDetails">16sp</dimen>
     <dimen name="fontJour">16sp</dimen>
     <dimen name="fontMois">12sp</dimen>
+    <dimen name="fontDateTournament">18sp</dimen>
+    <dimen name="fontDescriptionTournament">14sp</dimen>
+
+    <!-- DRAWABLE -->
+    <dimen name="paddingBorderRounded">7sp</dimen>
+    <dimen name="roundedCorner">5sp</dimen>
+    <dimen name="borderSize">2px</dimen>
 </resources>
