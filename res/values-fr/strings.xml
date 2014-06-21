@@ -22,7 +22,7 @@
     <!-- Tournoi Fragment -->
     <string name="subtitleTournament">Titre du tournoi</string>
     <string name="variousInfos">Type de terrain et type de tournoi</string>
-    <string name="publisher">Tournoi publié par <b>publieur</b></string>
+    <string name="publisher">Tournoi publié par</string>
     
     
     <!-- INFORMATIONS COMPLÉMENTAIRES -->

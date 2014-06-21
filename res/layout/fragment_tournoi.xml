@@ -1,6 +1,6 @@
 <ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView">
 
@@ -49,13 +49,13 @@
         </LinearLayout>
 
         <!-- TOURNAMENTS IN LIST -->
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:background="@drawable/border_rounded"-->
-            <!--android:layout_marginTop="15sp" >-->
-        <!--</LinearLayout>-->
+        <LinearLayout
+            android:id="@+id/textV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15sp" >
+        </LinearLayout>
 
 
         <!-- INFORMATIONS COMPLÉMENTAIRES -->
@@ -63,8 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/border_rounded"
-            android:layout_marginTop="15sp">
+            android:background="@drawable/border_rounded">
+            <!--android:layout_marginTop="15sp">-->
 
             <TextView
                 android:layout_width="match_parent"
