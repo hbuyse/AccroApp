@@ -13,7 +13,6 @@ public class Tournament {
     private String link;
     
     public Tournament() {
-        // TODO Auto-generated constructor stub
         super();
         this.place = null;
         this.detail = null;

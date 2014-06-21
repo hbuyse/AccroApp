@@ -30,7 +30,6 @@ public class TournamentListFragment extends ListFragment {
     
         
     public TournamentListFragment() {
-        // TODO Auto-generated constructor stub
     }
     
     
@@ -111,7 +110,7 @@ public class TournamentListFragment extends ListFragment {
                     
                     int nbJour     = tournaments.get(i).select("div[class=calendrierjour]").size();
                     
-                    tournoiArrayList.add(new Tournament(place.text(), detail.text(), day.text(), month.text(), link, nbJour));
+                    tournoiArrayList.add(new Tournament(place.text().toUpperCase(), detail.text(), day.text(), month.text(), link, nbJour));
                 }
                 
             }
