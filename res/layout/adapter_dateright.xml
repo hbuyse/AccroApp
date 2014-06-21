@@ -3,7 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip" >
+    android:padding="4dip"
+    android:background="@drawable/item_shape">
 
     <TextView
         android:id="@+id/firstLine"
@@ -12,9 +13,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toLeftOf="@id/date_mois"
+        android:layout_toLeftOf="@id/day_month"
         android:gravity="center_vertical"
-        android:text="@string/lieu_tournoi"
+        android:text="@string/tournamentPlace"
         android:textSize="16sp" />
 
 	<TextView
@@ -24,14 +25,14 @@
         android:layout_below="@id/firstLine"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toLeftOf="@id/date_mois"
+        android:layout_toLeftOf="@id/day_month"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:text="@string/details_tournoi"
+        android:text="@string/tournamentDetails"
         android:textSize="12sp" />
 
 	<LinearLayout
-	    android:id="@+id/date_mois"
+	    android:id="@+id/day_month"
 	    android:layout_width="50dip"
 	    android:layout_height="match_parent"
 	    android:layout_alignParentRight="true"
@@ -39,27 +40,27 @@
 	    android:orientation="vertical" >
 
 	    <TextView
-	        android:id="@+id/mois"
+	        android:id="@+id/month"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="4dip"
-	        android:background="@color/color_mois"
 	        android:gravity="center"
-	        android:text="@string/size_jour"
-	        android:textColor="@color/color_jour"
+	        android:text="@string/sizeMonth"
+	        android:textColor="@color/font_month"
 	        android:textSize="16sp"
-	        android:textStyle="bold" />
+	        android:textStyle="bold"
+            android:background="@drawable/month_shape"/>
 
 	    <TextView
-	        android:id="@+id/date"
+	        android:id="@+id/day"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
-	        android:background="@color/color_jour"
 	        android:gravity="center"
-	        android:text="@string/size_mois"
-	        android:textColor="@color/color_mois"
+	        android:text="@string/sizeDay"
+	        android:textColor="@color/font_day"
 	        android:textSize="16sp"
-	        android:textStyle="bold" />
+	        android:textStyle="bold"
+            android:background="@drawable/day_shape"/>
 	</LinearLayout>
 
 </RelativeLayout> 

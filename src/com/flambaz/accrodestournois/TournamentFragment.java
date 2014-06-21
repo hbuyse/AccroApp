@@ -1,7 +1,6 @@
 package com.flambaz.accrodestournois;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
 import org.jsoup.Jsoup;
@@ -19,8 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class TournoiFragment extends Fragment {
-    private String url_tournoi;
+public class TournamentFragment extends Fragment {
+    private String url_tournament;
     private ProgressDialog mProgressDialog;
     private Document webPage = null;
 
@@ -31,7 +30,7 @@ public class TournoiFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        url_tournoi = getActivity().getIntent().getExtras().getString("url_tournoi");
+        url_tournament = getActivity().getIntent().getExtras().getString("url_tournament");
         
         /* Execute Title AsyncTask
          * create some objects
@@ -60,25 +59,25 @@ public class TournoiFragment extends Fragment {
         
         /* Récupération de toutes les informations contenues dans le HTML
          */
-        String   _libelleTournoi = webPage.select("div[id=textualbig] div[id=libelletournoi]").text();
-        String   _centreDivers   = webPage.select("div[id=textualbig] ul[class=center] strong").text().replace("|", "-");
-        String   _publicateur    = webPage.select("div[id=textualbig] ul[class=center] em").text();
+        String   _subtitleTournament = webPage.select("div[id=textualbig] div[id=libelletournoi]").text();
+        String   _variousInfos       = webPage.select("div[id=textualbig] ul[class=center] strong").text().replace("|", "-");
+        String   _publisher          = webPage.select("div[id=textualbig] ul[class=center] em").text();
 
-        String   _infosComp      = webPage.select("div[id=textualbig] div[id=tdetails] p").text();
-        Elements _tdetails       = webPage.select("div[id=textualbig] div[id=tdetails] p");
+        String   _additionalInfo     = webPage.select("div[id=textualbig] div[id=tdetails] p").text();
+        Elements _tdetails           = webPage.select("div[id=textualbig] div[id=tdetails] p");
 
 
         /* Récupération du titre du tournoi (pas le lieu)
          */
-        TextView libelle_tournoi = (TextView) rootView.findViewById(R.id.libelleTournoi);
-        TextView centre_divers   = (TextView) rootView.findViewById(R.id.centreDivers);
-        TextView publicateur     = (TextView) rootView.findViewById(R.id.publicateur);
+        TextView subtitleTournament = (TextView) rootView.findViewById(R.id.subtitleTournament);
+        TextView variousInfos       = (TextView) rootView.findViewById(R.id.variousInfos);
+        TextView publisher          = (TextView) rootView.findViewById(R.id.publisher);
 
         /* Récupération de la partie : infos complémentaires.
          * Pour le moment, on désactive la vue au cas où elle n'existe pas.
          */
-        TextView infosComp       = (TextView) rootView.findViewById(R.id.infosComp);
-        infosComp.setVisibility(View.GONE);
+        TextView additionalInfo     = (TextView) rootView.findViewById(R.id.additionalInfo);
+        additionalInfo.setVisibility(View.GONE);
 
         /* Récupération de la partie : contact
          * Pour le moment, on désactive toutes les vues au cas où elles n'existent pas.
@@ -95,20 +94,20 @@ public class TournoiFragment extends Fragment {
 
         /* Si il n'y a pas de titre, on libère la place.
          */
-        if (_libelleTournoi.equals("")){
-            libelle_tournoi.setVisibility(View.GONE);
+        if (_subtitleTournament.equals("")){
+        	subtitleTournament.setVisibility(View.GONE);
         }
         
         /* On dépose les valeurs dans les champs correspondants
          */
-        libelle_tournoi.setText(_libelleTournoi);
-        centre_divers.setText(_centreDivers);
-        publicateur.setText(_publicateur);
-        infosComp.setText(_infosComp);
+        subtitleTournament.setText(_subtitleTournament);
+        variousInfos.setText(_variousInfos);
+        publisher.setText(_publisher);
+        additionalInfo.setText(_additionalInfo);
 
 
         for (Element i : _tdetails) {
-            /* Vérification de la présence d'un nom
+            /* Is there a contact name?
              */
             if ( ! i.select("span[class=usericon]").isEmpty() ) {
                 contactName.setText(i.text());
@@ -116,7 +115,7 @@ public class TournoiFragment extends Fragment {
                 Log.i("USER", i.text());
             }
 
-            /* Vérification de la présence d'un numéro de téléphone
+            /* Is there a phone number?
              */
             if ( ! i.select("span[class=phoneicon]").isEmpty() ) {
                 contactPhone.setText(i.text());
@@ -124,14 +123,14 @@ public class TournoiFragment extends Fragment {
                 Log.i("PHONE", i.text());
             }
 
-            /* Vérification de la présence d'un nom
+            /* Is there a mail address?
              */
             if ( ! i.select("span[class=mailicon]").isEmpty() ) {
                 contactMail.setVisibility(View.VISIBLE);
                 Log.i("MAIL", i.text());
             }
 
-            /* Vérification de la présence d'un nom
+            /* Is there a website?
              */
             if ( ! i.select("span[class=mouseicon]").isEmpty() ) {
                 contactWebsite.setVisibility(View.VISIBLE);
@@ -139,11 +138,11 @@ public class TournoiFragment extends Fragment {
             }
         }
 
-        /* Vérification de la présence d'un nom
+        /* Is there additionals informations ?
          */
         if (! _tdetails.last().text().isEmpty()) {
-            infosComp.setText(_tdetails.last().html().replace("<br /><br />", "").replace("<br />", "\n").replace("&eacute;", "é"));
-            infosComp.setVisibility(View.VISIBLE);
+            additionalInfo.setText(_tdetails.last().html().replace("<br /><br />", "").replace("<br />", "\n").replace("&eacute;", "é"));
+            additionalInfo.setVisibility(View.VISIBLE);
         }
 
         return rootView;
@@ -152,7 +151,7 @@ public class TournoiFragment extends Fragment {
     
     
     
-    /* Tache asynchrone permettant de parser le site web accro-des-tournois
+    /* Asynchronous task which download the source code of the website accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
         
@@ -160,8 +159,8 @@ public class TournoiFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setTitle(R.string.tournoi_progress);
-            mProgressDialog.setMessage("Chargement...");
+            mProgressDialog.setTitle(R.string.tournamentProgress);
+            mProgressDialog.setMessage(getString(R.string.loading));
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
@@ -171,10 +170,10 @@ public class TournoiFragment extends Fragment {
         
         @Override
         protected Void doInBackground(Void... parameters) {
-            /* Connection au site web défini par 'url'
+            /* Connecting to the website using 'url_tournament'
              */
             try {
-                webPage = Jsoup.connect(url_tournoi).get();
+                webPage = Jsoup.connect(url_tournament).get();
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -190,7 +189,7 @@ public class TournoiFragment extends Fragment {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             
-            /* Extinction de la boite de dialogue
+            /* Stopping the progress dialog
              */
             if (mProgressDialog.isShowing()) {
                 mProgressDialog.dismiss();

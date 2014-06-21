@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="?android:attr/listPreferredItemHeight"-->
+    <!--android:padding="4dip"-->
+    <!--android:background="@drawable/item_shape" >-->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:padding="4dip"
-    android:background="@drawable/item_shape" >
+    android:background="@drawable/item_shape"
+    android:gravity="center">
 
     <LinearLayout
-        android:id="@+id/date_mois"
+        android:id="@+id/day_month"
         android:layout_width="50dip"
         android:layout_height="fill_parent"
-        android:layout_marginRight="20dip"
-        android:layout_marginLeft="6dip"
-        android:orientation="vertical">
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="0dip"
+        android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/mois"
+                android:id="@+id/month"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dip"
+                android:layout_height="20dip"
+                android:layout_marginTop="0dip"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textColor="@color/color_jour"
+                android:textColor="@color/font_month"
                 android:textStyle="bold"
-                android:text="@string/size_jour"
-                android:background="@color/color_mois" />
+                android:text="@string/sizeMonth"
+                android:background="@drawable/month_shape" />
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/day"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textColor="@color/color_mois"
+                android:textColor="@color/font_day"
                 android:textStyle="bold"
-                android:text="@string/size_mois"
-                android:background="@color/color_jour" />
+                android:text="@string/sizeDay"
+                android:background="@drawable/day_shape" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/firstLine"
+        android:id="@+id/place"
         android:layout_width="fill_parent"
-        android:layout_height="30dip"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/date_mois"
+        android:layout_toRightOf="@id/day_month"
         android:gravity="center_vertical"
-        android:text="@string/lieu_tournoi"
+        android:text="@string/tournamentPlace"
         android:textSize="16sp"
         android:textColor="@color/font" />
 
     <TextView
-        android:id="@+id/secondLine"
+        android:id="@+id/details"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/firstLine"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/place"
+        android:layout_alignParentBottom="false"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/date_mois"
-        android:ellipsize="marquee"
+        android:layout_toRightOf="@id/day_month"
         android:singleLine="true"
         android:gravity="center_vertical"
-        android:text="@string/details_tournoi"
+        android:text="@string/tournamentDetails"
         android:textSize="12sp"
         android:textColor="@color/font" />
 

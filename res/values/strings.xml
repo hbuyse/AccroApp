@@ -3,31 +3,32 @@
 
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="helloWorld">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="date_tournoi">Tournament date</string>
-    <string name="details_tournoi">Tournament details + number of days</string>
-    <string name="lieu_tournoi">Tournament place</string>
-    <string name="size_jour">16</string>
-    <string name="size_mois">Jun</string>
+    <string name="tournamentDate">Tournament date</string>
+    <string name="tournamentDetails">Tournament details + number of days</string>
+    <string name="tournamentPlace">Tournament place</string>
+    <string name="sizeDay">16</string>
+    <string name="sizeMonth">Jun</string>
 
     
     <!-- ProgressDialog -->
-    <string name="main_progress">Retrieving the list of tournaments</string>
-    <string name="title_activity_tournoi">Tournament</string>
-    <string name="tournoi_progress">Retrieving the tournament</string>
+    <string name="mainProgress">Retrieving the list of tournaments</string>
+    <string name="loading">Loading...</string>
+    <string name="titleActivityTournament">Tournament</string>
+    <string name="tournamentProgress">Retrieving the tournament</string>
     
     
     <!-- Tournoi Fragment -->
-    <string name="libelleTournoi">Tournament name</string>
-    <string name="centreDivers">Type of surface and type of tournament</string>
-    <string name="publiePar">Publisher</string>
+    <string name="subtitleTournament">Tournament name</string>
+    <string name="variousInfos">Type of surface and type of tournament</string>
+    <string name="publisher">Publisher</string>
     
     
     <!-- INFORMATIONS COMPLÉMENTAIRES -->
-    <string name="infosComp"><u>Additional informations</u></string>
+    <string name="additionalInfo"><u>Additional informations</u></string>
     <string name="infos"    >
-        Beginnig hour of the tournament\nFoo bar
+        Beginning hour of the tournament\nFoo bar
     </string>
     
     

@@ -11,9 +11,9 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="@dimen/margeDateHaut"
-	    android:background="@drawable/date_shape"
+	    android:background="@drawable/month_shape"
 	    android:gravity="center"
-	    android:text="@string/size_jour"
+	    android:text="@string/sizeDay"
 	    android:textColor="@color/font_month"
 	    android:textSize="@dimen/fontJour"
 	    android:textStyle="bold" />
@@ -26,7 +26,7 @@
 	    android:layout_below="@+id/mois"
 	    android:background="@color/background_day"
 	    android:gravity="center"
-	    android:text="@string/size_mois"
+	    android:text="@string/sizeMonth"
 	    android:textColor="@color/font_day"
 	    android:textSize="@dimen/fontMois"
 	    android:textStyle="bold" />

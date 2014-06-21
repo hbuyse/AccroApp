@@ -9,24 +9,24 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class TournoiListAdapter extends ArrayAdapter<Tournoi> {
+public class TournamentListAdapter extends ArrayAdapter<Tournament> {
      
         @SuppressWarnings("unused")
         private final Context context;
         
-        // Déclaration de mon ArrayList de Tournoi
-        private final ArrayList<Tournoi> tournoiArrayList;
+        // Déclaration de mon ArrayList de Tournament
+        private final ArrayList<Tournament> tournamentArrayList;
      
         /* here we must override the constructor for ArrayAdapter
          * the only variable we care about now is ArrayList<Item> objects,
          * because it is the list of objects we want to display.
          */
-        public TournoiListAdapter(Context context, int textViewResourceId, ArrayList<Tournoi> tournoiArrayList) {
+        public TournamentListAdapter(Context context, int textViewResourceId, ArrayList<Tournament> tournamentArrayList) {
  
-            super(context, textViewResourceId, tournoiArrayList);
+            super(context, textViewResourceId, tournamentArrayList);
  
             this.context = context;
-            this.tournoiArrayList = tournoiArrayList;
+            this.tournamentArrayList = tournamentArrayList;
         }
      
         /*
@@ -53,38 +53,39 @@ public class TournoiListAdapter extends ArrayAdapter<Tournoi> {
              * The variable simply refers to the position of the current object in the list.
              * (The ArrayAdapter iterates through the list we sent it)
              * 
-             * Therefore, i refers to the current Tournoi object.
+             * Therefore, i refers to the current Tournament object.
              */
-            Tournoi i = tournoiArrayList.get(position);
+            Tournament i = tournamentArrayList.get(position);
             
             
             if (i != null) {
                 /* This is how you obtain a reference to the TextViews.
                  * These TextViews are created in the XML files we defined.
                  */
-                TextView lieuView    = (TextView) rowView.findViewById(R.id.firstLine);
-                TextView detailsView = (TextView) rowView.findViewById(R.id.secondLine);
-                TextView jourView    = (TextView) rowView.findViewById(R.id.date);
-                TextView moisView    = (TextView) rowView.findViewById(R.id.mois);
+                TextView placeView    = (TextView) rowView.findViewById(R.id.place);
+                TextView detailsView  = (TextView) rowView.findViewById(R.id.details);
+                TextView dayView      = (TextView) rowView.findViewById(R.id.day);
+                TextView monthView    = (TextView) rowView.findViewById(R.id.month);
  
                 /* check to see if each individual textview is null.
                  * if not, assign some text!
                  */
-                if (lieuView != null){
-                    lieuView.setText(i.getLieu());
+                if (placeView != null){
+                	placeView.setText(i.getPlace());
                 }
                 if (detailsView != null){
                     detailsView.setText(i.getDetail());
                 }
-                if (detailsView != null){
-                    moisView.setText(i.getMois());
+                if (monthView != null){
+                    monthView.setText(i.getMonth());
                 }
-                if (jourView != null){
-                    jourView.setText(i.getJour());
+                if (dayView != null){
+                	dayView.setText(i.getDay());
                 }
             }
 
-            // the view must be returned to our activity
+            /* The view must be returned to our activity
+             */
             return rowView;
         }
 }
