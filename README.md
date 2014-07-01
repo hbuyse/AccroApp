@@ -3,7 +3,8 @@ This app connects to the website http://www.accro-des-tournois.com and shows you
 current tournaments that are organized through France.
 
 ## TODO
-  * Change all variables from french to english
+  * Change all commentaries from french to english
+  * Navigation Drawer for the regions of France
   * Showing the adress of the tournament in the View of the tournament
   * Showing the triangle which show the type of surface of the tournament
   * Showing the FULL rectangle if the tournament is full
