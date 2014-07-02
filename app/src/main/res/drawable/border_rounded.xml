@@ -5,22 +5,18 @@
 
     <stroke
         android:width="@dimen/borderSize"
-        android:color="#000000"
-    />
+        android:color="#000000" />
 
     <!--<gradient android:startColor="@color/darkorange"-->
-        <!--android:endColor="@color/red"-->
-        <!--android:angle="90"/>-->
+    <!--android:endColor="@color/red"-->
+    <!--android:angle="90"/>-->
 
-    <corners
-        android:radius="@dimen/roundedCorner"
-    />
+    <corners android:radius="@dimen/roundedCorner" />
 
     <padding
-        android:top="@dimen/paddingBorderRounded"
         android:bottom="@dimen/paddingBorderRounded"
         android:left="@dimen/paddingBorderRounded"
         android:right="@dimen/paddingBorderRounded"
-    />
+        android:top="@dimen/paddingBorderRounded" />
 
 </shape>

@@ -19,21 +19,21 @@
     <string name="loading">Chargement...</string>
     <string name="titleActivityTournament">Tournoi</string>
     <string name="tournamentProgress">Récupération du tournoi</string>
-    
-    
+
+
     <!-- Tournoi Fragment -->
     <string name="subtitleTournament">Titre du tournoi</string>
     <string name="variousInfos">Type de terrain et type de tournoi</string>
     <string name="publisher">Tournoi publié par</string>
-    
-    
+
+
     <!-- INFORMATIONS COMPLÉMENTAIRES -->
     <string name="additionalInfo"><u>Infos complémentaires</u></string>
-    <string name="infos"    >
+    <string name="infos">
         Heure de début de tournoi\nToto
     </string>
-    
-    
+
+
     <!-- CONTACT -->
     <string name="contact"><u>Contact</u></string>
     <string name="contactName">Nom du contact</string>

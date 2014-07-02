@@ -12,8 +12,6 @@ public class Tournament {
     private String link;
 
 
-
-
     public Tournament() {
         super();
         this.place = null;
@@ -24,7 +22,6 @@ public class Tournament {
     }
 
 
-
     /* Parametered constructor : allow to pass all the informations necessary that we show in the row of the ListView
      */
     public Tournament(String place, String detail, String day, String month, String link, int nbday) {
@@ -33,16 +30,13 @@ public class Tournament {
         this.detail = detail + " / " + nbday + " ";
         if (nbday == 1) {
             this.detail += "day";
-        }
-        else {
+        } else {
             this.detail += "days";
         }
         this.day = day;
         this.month = month;
         this.link = link;
     }
-
-
 
 
     /* Getters

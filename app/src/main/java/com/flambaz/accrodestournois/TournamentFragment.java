@@ -1,18 +1,11 @@
 package com.flambaz.accrodestournois;
 
-import java.io.IOException;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
+import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,12 +14,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+
 public class TournamentFragment extends Fragment {
     private String url_tournament;
     private ProgressDialog mProgressDialog;
     private Document webPage = null;
-
-
 
 
     @Override
@@ -37,8 +35,6 @@ public class TournamentFragment extends Fragment {
          */
         url_tournament = getActivity().getIntent().getExtras().getString("url_tournament");
     }
-
-
 
 
     @Override
@@ -58,8 +54,6 @@ public class TournamentFragment extends Fragment {
     }
 
 
-
-
     /* Asynchronous task which download the source code of the website accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
@@ -67,17 +61,13 @@ public class TournamentFragment extends Fragment {
         private View rootView;
 
 
-
-
         /* Using a constructor in order to pass the view and the context
          * With those things, I can now pass show the ProgressDialog.
          */
-        public ParseWebSite(Context context, View rootView){
+        public ParseWebSite(Context context, View rootView) {
             this.mContext = context;
             this.rootView = rootView;
         }
-
-
 
 
         private void parse() {
@@ -90,12 +80,12 @@ public class TournamentFragment extends Fragment {
 
             /* Recover all the informations that are contained in the HTML webpage
              */
-            String   _subtitleTournament = webPage.select("div[id=libelletournoi]").text();
-            String   _variousInfos       = webPage.select("ul[class=center] strong").text().replace("|", "-");
-            String   _publisher          = webPage.select("ul[id=tlist] div[class=align_right] a").text();
+            String _subtitleTournament = webPage.select("div[id=libelletournoi]").text();
+            String _variousInfos = webPage.select("ul[class=center] strong").text().replace("|", "-");
+            String _publisher = webPage.select("ul[id=tlist] div[class=align_right] a").text();
 
-            String   _additionalInfo     = webPage.select("div[id=tdetails] p").text();
-            Elements _tdetails           = webPage.select("div[id=tdetails] p");
+            String _additionalInfo = webPage.select("div[id=tdetails] p").text();
+            Elements _tdetails = webPage.select("div[id=tdetails] p");
 
             Elements _elementTournaments = webPage.select("ul[id=tlist] li[class=elementtournoi]");
 
@@ -103,33 +93,33 @@ public class TournamentFragment extends Fragment {
             /* Recover the title of the tournament (not the place)
              */
             TextView subtitleTournament = (TextView) rootView.findViewById(R.id.subtitleTournament);
-            TextView variousInfos       = (TextView) rootView.findViewById(R.id.variousInfos);
-            TextView publisher          = (TextView) rootView.findViewById(R.id.publisher);
+            TextView variousInfos = (TextView) rootView.findViewById(R.id.variousInfos);
+            TextView publisher = (TextView) rootView.findViewById(R.id.publisher);
 
 
             /* Recover the part : additional informations
              * For now, we disable the view in order to not show it if it does not exist
              */
-            TextView additionalInfo     = (TextView) rootView.findViewById(R.id.additionalInfo);
+            TextView additionalInfo = (TextView) rootView.findViewById(R.id.additionalInfo);
             additionalInfo.setVisibility(View.GONE);
 
 
             /* Recover the part : contact
              * For now, we disable the views in order to not show them if they do not exist
              */
-            TextView contactName     = (TextView) rootView.findViewById(R.id.contactName);
+            TextView contactName = (TextView) rootView.findViewById(R.id.contactName);
             contactName.setVisibility(View.GONE);
-            TextView contactPhone    = (TextView) rootView.findViewById(R.id.contactPhone);
+            TextView contactPhone = (TextView) rootView.findViewById(R.id.contactPhone);
             contactPhone.setVisibility(View.GONE);
-            TextView contactWebsite  = (TextView) rootView.findViewById(R.id.contactWebsite);
+            TextView contactWebsite = (TextView) rootView.findViewById(R.id.contactWebsite);
             contactWebsite.setVisibility(View.GONE);
-            TextView contactMail     = (TextView) rootView.findViewById(R.id.contactMail);
+            TextView contactMail = (TextView) rootView.findViewById(R.id.contactMail);
             contactWebsite.setVisibility(View.GONE);
 
 
             /* If there is no title, we free the space
              */
-            if (_subtitleTournament.equals("")){
+            if (_subtitleTournament.equals("")) {
                 subtitleTournament.setVisibility(View.GONE);
             }
 
@@ -138,7 +128,7 @@ public class TournamentFragment extends Fragment {
              */
             subtitleTournament.setText(_subtitleTournament.toUpperCase());
             variousInfos.setText(_variousInfos);
-            publisher.setText(getString(R.string.publisher) + " "+ _publisher);
+            publisher.setText(getString(R.string.publisher) + " " + _publisher);
             additionalInfo.setText(_additionalInfo);
 
 
@@ -164,7 +154,7 @@ public class TournamentFragment extends Fragment {
                 linearLayout.setBackgroundResource(R.drawable.border_rounded);
 
 
-                String _title       = i.select("h3").text();
+                String _title = i.select("h3").text();
                 String _description = i.select("div").html().replace("<br /> ", "").replace("<br />", "").replace("&eacute;", "é").replace("&egrave", "è").replace("&agrave", "à");
 
                 TextView title = new TextView(getActivity());
@@ -200,27 +190,27 @@ public class TournamentFragment extends Fragment {
             for (Element i : _tdetails) {
                 /* Is there a contact name?
                  */
-                if ( ! i.select("span[class=usericon]").isEmpty() ) {
+                if (!i.select("span[class=usericon]").isEmpty()) {
                     contactName.setText(i.text());
                     contactName.setVisibility(View.VISIBLE);
                 }
 
                 /* Is there a phone number?
                  */
-                if ( ! i.select("span[class=phoneicon]").isEmpty() ) {
+                if (!i.select("span[class=phoneicon]").isEmpty()) {
                     contactPhone.setText(i.text());
                     contactPhone.setVisibility(View.VISIBLE);
                 }
 
                 /* Is there a mail address?
                  */
-                if ( ! i.select("span[class=mailicon]").isEmpty() ) {
+                if (!i.select("span[class=mailicon]").isEmpty()) {
                     contactMail.setVisibility(View.VISIBLE);
                 }
 
                 /* Is there a website?
                  */
-                if ( ! i.select("span[class=mouseicon]").isEmpty() ) {
+                if (!i.select("span[class=mouseicon]").isEmpty()) {
                     contactWebsite.setVisibility(View.VISIBLE);
                 }
             }
@@ -229,13 +219,11 @@ public class TournamentFragment extends Fragment {
              * * ADDITIONAL INFORMATIONS PART *
              * ********************************
              */
-            if (! _tdetails.last().text().isEmpty()) {
+            if (!_tdetails.last().text().isEmpty()) {
                 additionalInfo.setText(_tdetails.last().html().replace("<br /><br />", "").replace("<br />", "\n").replace("&eacute;", "é").replace("&egrave", "è").replace("&agrave", "à"));
                 additionalInfo.setVisibility(View.VISIBLE);
             }
         }
-
-
 
 
         @Override
@@ -247,8 +235,6 @@ public class TournamentFragment extends Fragment {
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
-
-
 
 
         @Override
@@ -263,8 +249,6 @@ public class TournamentFragment extends Fragment {
 
             return null;
         }
-
-
 
 
         @Override

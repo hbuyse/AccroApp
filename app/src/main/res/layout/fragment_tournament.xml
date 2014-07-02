@@ -1,28 +1,28 @@
 <ScrollView
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollView">
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
+        android:id="@+id/layoutTournament"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.flambaz.accrodestournois.TournoiActivity$PlaceholderFragment"
-        android:id="@+id/layoutTournament" >
+        tools:context="com.flambaz.accrodestournois.TournoiActivity$PlaceholderFragment">
 
 
         <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:background="@drawable/header_tournament"
+            android:orientation="vertical"
             android:paddingBottom="5sp"
             android:paddingTop="5sp">
 
@@ -32,20 +32,20 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/subtitleTournament"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/variousInfos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
                 android:gravity="center"
                 android:text="@string/variousInfos"
-                android:layout_marginTop="5sp"
+                android:textColor="@color/white"
                 android:textSize="14sp"
-                android:textStyle="normal"
-                android:textColor="@color/white" />
+                android:textStyle="normal" />
         </LinearLayout>
 
         <!-- TOURNAMENTS IN LIST -->
@@ -53,17 +53,16 @@
             android:id="@+id/textV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15sp" >
-        </LinearLayout>
+            android:layout_marginTop="15sp"
+            android:orientation="vertical"></LinearLayout>
 
 
         <!-- INFORMATIONS COMPLÉMENTAIRES -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/border_rounded">
+            android:background="@drawable/border_rounded"
+            android:orientation="vertical">
             <!--android:layout_marginTop="15sp">-->
 
             <TextView
@@ -78,10 +77,10 @@
                 android:id="@+id/additionalInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
                 android:layout_marginTop="5sp"
-                android:text="@string/infos"
+                android:gravity="start"
                 android:lineSpacingExtra="5sp"
+                android:text="@string/infos"
                 android:textSize="14sp"
                 android:textStyle="normal" />
         </LinearLayout>
@@ -91,9 +90,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginTop="15sp"
             android:background="@drawable/border_rounded"
-            android:layout_marginTop="15sp" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -101,14 +100,14 @@
                 android:gravity="start"
                 android:text="@string/contact"
                 android:textSize="18sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/contactName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
                 android:layout_marginTop="5sp"
+                android:gravity="start"
                 android:text="@string/contactName"
                 android:textSize="14sp"
                 android:textStyle="normal" />
@@ -117,8 +116,8 @@
                 android:id="@+id/contactPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
                 android:layout_marginTop="5sp"
+                android:gravity="start"
                 android:text="@string/contactPhone"
                 android:textSize="14sp"
                 android:textStyle="normal" />
@@ -127,8 +126,8 @@
                 android:id="@+id/contactWebsite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
                 android:layout_marginTop="5sp"
+                android:gravity="start"
                 android:text="@string/contactWebsite"
                 android:textSize="14sp"
                 android:textStyle="normal" />
@@ -137,8 +136,8 @@
                 android:id="@+id/contactMail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start"
                 android:layout_marginTop="5sp"
+                android:gravity="start"
                 android:text="@string/contactMail"
                 android:textSize="14sp"
                 android:textStyle="normal" />

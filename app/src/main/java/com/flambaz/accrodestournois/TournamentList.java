@@ -1,12 +1,12 @@
 package com.flambaz.accrodestournois;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class TournamentList extends FragmentActivity {
+public class TournamentList extends Activity {
 
     /* Called when the activity is first created.
      */
@@ -32,8 +32,6 @@ public class TournamentList extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-
 
 
     @Override

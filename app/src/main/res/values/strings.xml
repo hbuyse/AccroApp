@@ -3,6 +3,7 @@
 
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
+    <string name="website">http://www.accro-des-tournois.com</string>
     <string name="helloWorld">Hello world!</string>
     <string name="tournamentDate">Tournament date</string>
     <string name="tournamentDetails">Tournament details + number of days</string>
@@ -40,8 +41,7 @@
     <string name="title_activity_tournoi">Tournoi</string>
     -->
 
-    <string name="title_activity_main">MainActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main">SplashScreen</string>
+    <string name="description_ic_launcher">Volley Ball</string>
 
 </resources>

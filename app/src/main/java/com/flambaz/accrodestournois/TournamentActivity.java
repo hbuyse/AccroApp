@@ -31,8 +31,6 @@ public class TournamentActivity extends FragmentActivity {
     }
 
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -41,8 +39,6 @@ public class TournamentActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.tournoi, menu);
         return true;
     }
-
-
 
 
     @Override

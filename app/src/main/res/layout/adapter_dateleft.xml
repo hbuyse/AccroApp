@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--android:layout_width="fill_parent"-->
-<!--android:layout_height="?android:attr/listPreferredItemHeight"-->
-<!--android:padding="4dip"-->
-<!--android:background="@drawable/item_shape" >-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="fill_parent"--><!--android:layout_height="?android:attr/listPreferredItemHeight"--><!--android:padding="4dip"--><!--android:background="@drawable/item_shape" >-->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="4dip"
-    android:background="@drawable/item_shape" >
+    android:background="@drawable/item_shape"
+    android:padding="4dip">
 
     <LinearLayout
         android:id="@+id/day_month"
         android:layout_width="50dip"
         android:layout_height="fill_parent"
-        android:layout_marginRight="10dip"
         android:layout_marginLeft="0dip"
-        android:orientation="vertical" >
+        android:layout_marginRight="10dip"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/month"
             android:layout_width="fill_parent"
             android:layout_height="20dip"
             android:layout_marginTop="0dip"
+            android:background="@drawable/month_shape"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/font_month"
-            android:textStyle="bold"
             android:text="@string/sizeMonth"
-            android:background="@drawable/month_shape" />
+            android:textColor="@color/font_month"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/day"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:background="@drawable/day_shape"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/font_day"
-            android:textStyle="bold"
             android:text="@string/sizeDay"
-            android:background="@drawable/day_shape" />
+            android:textColor="@color/font_day"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
@@ -54,21 +50,21 @@
         android:layout_toRightOf="@id/day_month"
         android:gravity="center_vertical"
         android:text="@string/tournamentPlace"
-        android:textSize="16sp"
-        android:textColor="@color/font" />
+        android:textColor="@color/font"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/details"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/place"
         android:layout_alignParentBottom="false"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/place"
         android:layout_toRightOf="@id/day_month"
-        android:singleLine="true"
         android:gravity="center_vertical"
+        android:singleLine="true"
         android:text="@string/tournamentDetails"
-        android:textSize="12sp"
-        android:textColor="@color/font" />
+        android:textColor="@color/font"
+        android:textSize="12sp" />
 
 </RelativeLayout> 
