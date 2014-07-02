@@ -7,7 +7,6 @@
     <color name="background_list">#FF8400</color>
     <color name="background_row">#FAA90C</color>
 
-
     <!-- FONTS -->
     <color name="font_month">#FFFFFF</color>
     <color name="font_day">#0080FF</color>
@@ -25,5 +24,6 @@
     <color name="darkgreen" type="color">#FF669900</color>
     <color name="darkorange" type="color">#FFFF8800</color>
     <color name="darkred" type="color">#FFCC0000</color>
+    <color name="black_overlay">#66000000</color>
 
 </resources>

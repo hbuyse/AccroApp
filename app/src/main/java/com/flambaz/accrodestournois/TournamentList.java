@@ -1,32 +1,25 @@
 package com.flambaz.accrodestournois;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class TournamentActivity extends FragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class TournamentList extends Activity {
+
+    /* Called when the activity is first created.
+     */
+    public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-
-        /* Get the message from the intent
-         */
-        Intent intent = getIntent();
-        String place_tournament = intent.getExtras().getString("place_tournament");
-        setTitle(place_tournament);
-
-
-        setContentView(R.layout.activity_tournament);
-
+        setContentView(R.layout.activity_tournament_list);
 
         /* Create the list fragment and add it as our sole content.
          */
-        if (getFragmentManager().findFragmentById(R.id.containerTournament) == null) {
-            TournamentFragment tournoi = new TournamentFragment();
-            getFragmentManager().beginTransaction().add(R.id.containerTournament, tournoi).commit();
+        if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
+            TournamentListFragment list = new TournamentListFragment();
+            getFragmentManager().beginTransaction().add(R.id.containerMain, list).commit();
         }
     }
 
@@ -36,7 +29,7 @@ public class TournamentActivity extends FragmentActivity {
 
         /* Inflate the menu; this adds items to the action bar if it is present.
          */
-        getMenuInflater().inflate(R.menu.tournoi, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -53,5 +46,4 @@ public class TournamentActivity extends FragmentActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

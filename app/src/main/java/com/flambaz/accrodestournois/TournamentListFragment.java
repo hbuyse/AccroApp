@@ -1,12 +1,5 @@
 package com.flambaz.accrodestournois;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 import android.app.ListFragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,6 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class TournamentListFragment extends ListFragment {
     /* URL Address
@@ -33,8 +34,6 @@ public class TournamentListFragment extends ListFragment {
     }
 
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,15 +47,11 @@ public class TournamentListFragment extends ListFragment {
     }
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tournament_list, container, false);
         return rootView;
     }
-
-
 
 
     @Override
@@ -67,18 +62,16 @@ public class TournamentListFragment extends ListFragment {
          * URL of the Tournament and the place
          */
         Intent intent = new Intent(getActivity(), TournamentActivity.class);
-        intent.putExtra("url_tournament" , tournamentArrayList.get(position).getLink());
+        intent.putExtra("url_tournament", tournamentArrayList.get(position).getLink());
         intent.putExtra("place_tournament", tournamentArrayList.get(position).getPlace());
         startActivity(intent);
     }
 
 
-
-
     /* Asynchronous task allowing to parse the website accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
-        private Elements    tournaments;
+        private Elements tournaments;
 
         @Override
         protected void onPreExecute() {
@@ -102,26 +95,24 @@ public class TournamentListFragment extends ListFragment {
                  */
                 tournaments = webPage.select("li[class=elementtournoi]");
 
-                for (int i = 0; i < tournaments.size(); i++){
-                    Element place  = tournaments.get(i).select("div[class=annucontent] h3").first();
+                for (int i = 0; i < tournaments.size(); i++) {
+                    Element place = tournaments.get(i).select("div[class=annucontent] h3").first();
                     Element detail = tournaments.get(i).select("div[class=annucontent] div").first();
-                    Element day    = tournaments.get(i).select("div[class=calendrierjour]").first();
-                    Element month  = tournaments.get(i).select("div[class=calendriermois]").first();
-                    String  link   = tournaments.get(i).select("a").first().attr("abs:href");
+                    Element day = tournaments.get(i).select("div[class=calendrierjour]").first();
+                    Element month = tournaments.get(i).select("div[class=calendriermois]").first();
+                    String link = tournaments.get(i).select("a").first().attr("abs:href");
 
-                    int nbJour     = tournaments.get(i).select("div[class=calendrierjour]").size();
+                    int nbJour = tournaments.get(i).select("div[class=calendrierjour]").size();
 
                     tournamentArrayList.add(new Tournament(place.text().toUpperCase(), detail.text(), day.text(), month.text(), link, nbJour));
                 }
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
             return null;
         }
-
 
 
         @Override

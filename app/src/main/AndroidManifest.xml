@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.flambaz.accrodestournois"
     android:versionCode="1"
-    android:versionName="0.1b" >
+    android:versionName="0.1b">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -15,25 +15,40 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
+
         <activity
-            android:name="com.flambaz.accrodestournois.MainActivity"
-            android:label="@string/app_name_bis" >
+            android:name=".MainActivity"
+            android:label="@string/app_name_bis"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
+
         <activity
-            android:name="com.flambaz.accrodestournois.TournamentActivity"
+            android:name=".TournamentActivity"
             android:label="@string/titleActivityTournament"
-            android:parentActivityName="com.flambaz.accrodestournois.MainActivity" >
+            android:parentActivityName="com.flambaz.accrodestournois.TournamentList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.flambaz.accrodestournois.MainActivity" />
         </activity>
+
+
+        <activity
+            android:name=".TournamentList"
+            android:label="@string/titleActivityTournament"
+            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.flambaz.accrodestournois.MainActivity" />
+        </activity>
+
+
     </application>
 
 </manifest>
