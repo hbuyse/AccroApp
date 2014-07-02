@@ -33,51 +33,48 @@ public class TournamentFragment extends Fragment {
     private ProgressDialog mProgressDialog;
     private Document webPage = null;
 
-    
-    
-    
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /* Getting the URL from the activity before
+         */
         url_tournament = getActivity().getIntent().getExtras().getString("url_tournament");
-        
+    }
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        /* Getting the View
+         */
+        View rootView = inflater.inflate(R.layout.fragment_tournoi, container, false);
+
         /* Execute Title AsyncTask
          * create some objects
          * here is where you could also request data from a server
          * and then create objects from that data.
          */
-//        try {
-//            new ParseWebSite().execute().get();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
-    }
-    
-    
-    
-    
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        /* Récupération de la View
-         */
-        View rootView = inflater.inflate(R.layout.fragment_tournoi, container, false);
-
         new ParseWebSite(getActivity(), rootView).execute();
 
         return rootView;
     }
-    
-    
-    
-    
+
+
+
+
     /* Asynchronous task which download the source code of the website accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
         private Context mContext;
         private View rootView;
+
+
+
 
         /* Using a constructor in order to pass the view and the context
          * With those things, I can now pass show the ProgressDialog.
@@ -86,40 +83,11 @@ public class TournamentFragment extends Fragment {
             this.mContext = context;
             this.rootView = rootView;
         }
-        
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setTitle(R.string.tournamentProgress);
-            mProgressDialog.setMessage(getString(R.string.loading));
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
- 
-        
-        
-        
-        @Override
-        protected Void doInBackground(Void... parameters) {
-            /* Connecting to the website using 'url_tournament'
-             */
-            try {
-                webPage = Jsoup.connect(url_tournament).get();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
-            return null;
-        }
-        
-        
-        
-        
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
 
+
+
+
+        private parse() {
             /* Definition of the LinearLayout used for showing the tournament
              */
             LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.textV);
@@ -127,7 +95,7 @@ public class TournamentFragment extends Fragment {
             params.setMargins(0, 0, 0, 20);
 
 
-            /* Récupération de toutes les informations contenues dans le HTML
+            /* Recover all the informations that are contained in the HTML webpage
              */
             String   _subtitleTournament = webPage.select("div[id=libelletournoi]").text();
             String   _variousInfos       = webPage.select("ul[class=center] strong").text().replace("|", "-");
@@ -139,22 +107,22 @@ public class TournamentFragment extends Fragment {
             Elements _elementTournaments = webPage.select("ul[id=tlist] li[class=elementtournoi]");
 
 
-            /* Récupération du titre du tournoi (pas le lieu)
+            /* Recover the title of the tournament (not the place)
              */
             TextView subtitleTournament = (TextView) rootView.findViewById(R.id.subtitleTournament);
             TextView variousInfos       = (TextView) rootView.findViewById(R.id.variousInfos);
             TextView publisher          = (TextView) rootView.findViewById(R.id.publisher);
 
 
-            /* Récupération de la partie : infos complémentaires.
-             * Pour le moment, on désactive la vue au cas où elle n'existe pas.
+            /* Recover the part : additional informations
+             * For now, we disable the view in order to not show it if it does not exist
              */
             TextView additionalInfo     = (TextView) rootView.findViewById(R.id.additionalInfo);
             additionalInfo.setVisibility(View.GONE);
 
 
-            /* Récupération de la partie : contact
-             * Pour le moment, on désactive toutes les vues au cas où elles n'existent pas.
+            /* Recover the part : contact
+             * For now, we disable the views in order to not show them if they do not exist
              */
             TextView contactName     = (TextView) rootView.findViewById(R.id.contactName);
             contactName.setVisibility(View.GONE);
@@ -166,14 +134,14 @@ public class TournamentFragment extends Fragment {
             contactWebsite.setVisibility(View.GONE);
 
 
-            /* Si il n'y a pas de titre, on libère la place.
+            /* If there is no title, we free the space
              */
             if (_subtitleTournament.equals("")){
                 subtitleTournament.setVisibility(View.GONE);
             }
 
 
-            /* On dépose les valeurs dans les champs correspondants
+            /* We put the values in the corresponding textviews
              */
             subtitleTournament.setText(_subtitleTournament.toUpperCase());
             variousInfos.setText(_variousInfos);
@@ -272,8 +240,45 @@ public class TournamentFragment extends Fragment {
                 additionalInfo.setText(_tdetails.last().html().replace("<br /><br />", "").replace("<br />", "\n").replace("&eacute;", "é").replace("&egrave", "è").replace("&agrave", "à"));
                 additionalInfo.setVisibility(View.VISIBLE);
             }
+        }
 
 
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(getActivity());
+            mProgressDialog.setTitle(R.string.tournamentProgress);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+
+
+
+        @Override
+        protected Void doInBackground(Void... parameters) {
+            /* Connecting to the website using 'url_tournament'
+             */
+            try {
+                webPage = Jsoup.connect(url_tournament).get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+
+
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            this.parse();
 
             /* Stopping the progress dialog
              */

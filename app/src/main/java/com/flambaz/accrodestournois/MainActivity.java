@@ -7,14 +7,14 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends FragmentActivity {
-    
+
     /* Called when the activity is first created.
      */
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         /* Create the list fragment and add it as our sole content.
          */
         if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
@@ -23,7 +23,7 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -32,10 +32,10 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
-    
-    
-    
+
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         /* Handle action bar item clicks here. The action bar will
