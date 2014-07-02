@@ -6,14 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends FragmentActivity {
+public class TournamentList extends FragmentActivity {
 
     /* Called when the activity is first created.
      */
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tournament_list);
 
         /* Create the list fragment and add it as our sole content.
          */
