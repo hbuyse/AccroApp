@@ -22,64 +22,63 @@ public class TournamentListFragment extends ListFragment {
      */
     static String url = "http://www.accro-des-tournois.com";
     static ProgressDialog mProgressDialog;
-
-
-    /* Declare class variables
+    
+    
+    /* declare class variables
      */
-    private ArrayList<Tournament> tournamentArrayList = new ArrayList<Tournament>();
-
-
+    private ArrayList<Tournament> tournoiArrayList = new ArrayList<Tournament>();
+    
+        
     public TournamentListFragment() {
     }
-
-
-
-
+    
+    
+    
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+          
         /* Execute Title AsyncTask
-         * Create some objects
-         * Here is where you could also request data from a server
-         * And then create objects from that data.
+         * create some objects
+         * here is where you could also request data from a server
+         * and then create objects from that data.
          */
         new ParseWebSite().execute();
     }
+    
+    
 
-
-
-
+    
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {  
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         return rootView;
     }
 
-
-
-
+    
+    
+    
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
-        /* When we click on a Tournament, we pass through the Intent the
-         * URL of the Tournament and the place
+        
+        /* Envoi de l'URL du tournoi sur lequel nous avons cliqué
          */
         Intent intent = new Intent(getActivity(), TournamentActivity.class);
-        intent.putExtra("url_tournament" , tournamentArrayList.get(position).getLink());
-        intent.putExtra("place_tournament", tournamentArrayList.get(position).getPlace());
+        intent.putExtra("url_tournament" , tournoiArrayList.get(position).getLink());
+        intent.putExtra("place_tournament", tournoiArrayList.get(position).getPlace());
         startActivity(intent);
     }
-
-
-
-
-    /* Asynchronous task allowing to parse the website accro-des-tournois
+    
+    
+    
+    
+    /* Tache asynchrone permettant de parser le site web accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
         private Elements    tournaments;
-
+        
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -89,31 +88,31 @@ public class TournamentListFragment extends ListFragment {
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
-
-
+ 
+        
         @Override
         protected Void doInBackground(Void... params) {
-            try {
-                /* Connection to the website defined bu 'url'
+            try {                
+                /* Connection au site web défini par 'url'
                  */
                 Document webPage = Jsoup.connect(url).get();
-
-                /* Recovering the datas from the HTML
+                
+                /* Récupération des valeurs depuis le HTML
                  */
                 tournaments = webPage.select("li[class=elementtournoi]");
-
+                
                 for (int i = 0; i < tournaments.size(); i++){
                     Element place  = tournaments.get(i).select("div[class=annucontent] h3").first();
                     Element detail = tournaments.get(i).select("div[class=annucontent] div").first();
                     Element day    = tournaments.get(i).select("div[class=calendrierjour]").first();
                     Element month  = tournaments.get(i).select("div[class=calendriermois]").first();
                     String  link   = tournaments.get(i).select("a").first().attr("abs:href");
-
+                    
                     int nbJour     = tournaments.get(i).select("div[class=calendrierjour]").size();
-
-                    tournamentArrayList.add(new Tournament(place.text().toUpperCase(), detail.text(), day.text(), month.text(), link, nbJour));
+                    
+                    tournoiArrayList.add(new Tournament(place.text().toUpperCase(), detail.text(), day.text(), month.text(), link, nbJour));
                 }
-
+                
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -121,27 +120,26 @@ public class TournamentListFragment extends ListFragment {
 
             return null;
         }
-
-
-
+        
+        
+        
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-
-            /* Shutting down the progress dialog
+            
+            /* Extinction de la boite de dialogue
              */
             if (mProgressDialog.isShowing()) {
                 mProgressDialog.dismiss();
             }
-
-
+            
+            
             /* Instantiate our ItemAdapter class
-             *
-             * We have to let the setter of the ListAdapter in PostExecute otherwise
-             * the fragment may show itself but without the data.
-             * It will exhibit itself before the thread ends.
+             * 
+             * Il faut laisser le setter de la ListAdapter dans PostExecute sinon
+             * il se peut que l'activité se termine et s'affiche sans que le thread ne soit terminé.
              */
-            TournamentListAdapter m_adapter = new TournamentListAdapter(getActivity(), R.layout.row, tournamentArrayList);
+            TournamentListAdapter m_adapter = new TournamentListAdapter(getActivity(), R.layout.row, tournoiArrayList);
             setListAdapter(m_adapter);
         }
     }
