@@ -1,7 +1,6 @@
 package com.flambaz.accrodestournois;
 
-/*
- * Tu pourras trouver de l'aide à cette adresse :
+/* You can find help at the address below :
  * http://hmkcode.com/android-custom-listview-items-row/
  */
 
@@ -11,7 +10,10 @@ public class Tournament {
     private String day;
     private String month;
     private String link;
-    
+
+
+
+
     public Tournament() {
         super();
         this.place = null;
@@ -20,8 +22,11 @@ public class Tournament {
         this.month = null;
         this.link = null;
     }
-    
-    
+
+
+
+    /* Parametered constructor : allow to pass all the informations necessary that we show in the row of the ListView
+     */
     public Tournament(String place, String detail, String day, String month, String link, int nbday) {
         super();
         this.place = place;
@@ -36,25 +41,28 @@ public class Tournament {
         this.month = month;
         this.link = link;
     }
-    
+
+
+
+
     /* Getters
      */
     public String getDay() {
         return this.day;
     }
-    
+
     public String getMonth() {
         return this.month;
     }
-    
+
     public String getPlace() {
         return this.place;
     }
-    
+
     public String getDetail() {
         return this.detail;
     }
-    
+
     public String getLink() {
         return this.link;
     }
