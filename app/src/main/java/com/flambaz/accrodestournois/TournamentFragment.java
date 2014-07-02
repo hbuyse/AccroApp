@@ -80,7 +80,7 @@ public class TournamentFragment extends Fragment {
 
 
 
-        private parse() {
+        private void parse() {
             /* Definition of the LinearLayout used for showing the tournament
              */
             LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.textV);
