@@ -4,14 +4,16 @@
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
     <string name="helloWorld">Hello world!</string>
-    <string name="action_settings">Paramètres</string>
     <string name="tournamentDate">Date du tournoi</string>
     <string name="tournamentDetails">Détails du tournoi + nbJour</string>
     <string name="tournamentPlace">Lieu du tournoi</string>
     <string name="sizeDay">16</string>
     <string name="sizeMonth">Juin</string>
 
-    
+    <!-- Menu Button -->
+    <string name="action_settings">Paramètres</string>
+    <string name="refresh">Actualiser</string>
+
     <!-- ProgressDialog -->
     <string name="mainProgress">Récuperation de la liste</string>
     <string name="loading">Chargement...</string>

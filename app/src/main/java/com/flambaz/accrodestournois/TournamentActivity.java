@@ -19,7 +19,7 @@ public class TournamentActivity extends FragmentActivity {
         setTitle(place_tournament);
 
 
-        setContentView(R.layout.activity_tournoi);
+        setContentView(R.layout.activity_tournament);
 
 
         /* Create the list fragment and add it as our sole content.

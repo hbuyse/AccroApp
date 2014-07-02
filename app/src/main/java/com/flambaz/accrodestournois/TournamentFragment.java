@@ -1,11 +1,6 @@
 package com.flambaz.accrodestournois;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.concurrent.ExecutionException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,8 +13,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.os.Environment;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -52,7 +45,7 @@ public class TournamentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         /* Getting the View
          */
-        View rootView = inflater.inflate(R.layout.fragment_tournoi, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_tournament, container, false);
 
         /* Execute Title AsyncTask
          * create some objects
