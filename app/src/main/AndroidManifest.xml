@@ -9,6 +9,7 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -30,9 +31,9 @@
 
 
         <activity
-            android:name=".TournamentActivity"
-            android:label="@string/titleActivityTournament"
-            android:parentActivityName="com.flambaz.accrodestournois.TournamentList">
+            android:name=".TournamentList"
+            android:label="@string/title_tournament_list"
+            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.flambaz.accrodestournois.MainActivity" />
@@ -40,12 +41,12 @@
 
 
         <activity
-            android:name=".TournamentList"
-            android:label="@string/titleActivityTournament"
-            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
+            android:name=".TournamentActivity"
+            android:label="@string/title_tournament"
+            android:parentActivityName="com.flambaz.accrodestournois.TournamentList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.flambaz.accrodestournois.MainActivity" />
+                android:value="com.flambaz.accrodestournois.TournamentList" />
         </activity>
 
 

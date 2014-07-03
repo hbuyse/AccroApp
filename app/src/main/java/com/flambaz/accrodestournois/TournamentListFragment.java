@@ -2,13 +2,17 @@ package com.flambaz.accrodestournois;
 
 import android.app.ListFragment;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -43,7 +47,15 @@ public class TournamentListFragment extends ListFragment {
          * Here is where you could also request data from a server
          * And then create objects from that data.
          */
-        new ParseWebSite().execute();
+        if(isOnline()) {
+            new ParseWebSite().execute();
+        }
+        else {
+            Toast.makeText(getActivity(),
+                    getActivity().getResources().getString(R.string.no_connection),
+                    Toast.LENGTH_LONG).show();
+            getActivity().finish();
+        }
     }
 
 
@@ -67,6 +79,16 @@ public class TournamentListFragment extends ListFragment {
         startActivity(intent);
     }
 
+
+    public boolean isOnline() {
+        ConnectivityManager cm;
+        cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        }
+        return false;
+    }
 
     /* Asynchronous task allowing to parse the website accro-des-tournois
      */

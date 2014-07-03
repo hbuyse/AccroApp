@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Application Specificity -->
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
     <string name="helloWorld">Hello world!</string>
+    <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nRéessayer plus tard.</string>
+
+
+    <!-- Tournament Activity -->
     <string name="tournamentDate">Date du tournoi</string>
     <string name="tournamentDetails">Détails du tournoi + nbJour</string>
     <string name="tournamentPlace">Lieu du tournoi</string>
@@ -17,7 +22,6 @@
     <!-- ProgressDialog -->
     <string name="mainProgress">Récuperation de la liste</string>
     <string name="loading">Chargement...</string>
-    <string name="titleActivityTournament">Tournoi</string>
     <string name="tournamentProgress">Récupération du tournoi</string>
 
 
@@ -40,8 +44,8 @@
     <string name="contactPhone">06 00 00 00 00</string>
     <string name="contactWebsite">Site du tournoi</string>
     <string name="contactMail">Envoyer un message</string>
-    <!-- <string name="title_activity_tournoi">Tournoi</string>
-    <string name="title_activity_tournoi">Tournoi</string>
-    -->
 
+
+    <!-- Title Activity -->
+    <string name="title_tournament">Tournoi</string>
 </resources>
