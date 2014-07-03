@@ -20,9 +20,8 @@
 
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name_bis"
-            android:noHistory="true" >
+            android:name=".SplashScreen"
+            android:label="@string/app_name_bis" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,22 +30,18 @@
 
 
         <activity
-            android:name=".TournamentList"
+            android:name=".MainActivity"
             android:label="@string/title_tournament_list"
-            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.flambaz.accrodestournois.MainActivity" />
-        </activity>
+        />
 
 
         <activity
             android:name=".TournamentActivity"
             android:label="@string/title_tournament"
-            android:parentActivityName="com.flambaz.accrodestournois.TournamentList">
+            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.flambaz.accrodestournois.TournamentList" />
+                android:value="com.flambaz.accrodestournois.MainActivity" />
         </activity>
 
 
