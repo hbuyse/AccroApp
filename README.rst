@@ -1,9 +1,12 @@
-# Accro Des Tournois
-This app connects to the website http://www.accro-des-tournois.com and shows you the 
+==================
+Accro Des Tournois
+==================
+
+This application connects to the website http://www.accro-des-tournois.com and shows you the
 current tournaments that are organized through France.
 
-## TODO
-  * Change all commentaries from french to english
+TODO
+====
   * Navigation Drawer for the regions of France
   * Showing the adress of the tournament in the View of the tournament
   * Showing the triangle which show the type of surface of the tournament
@@ -11,7 +14,8 @@ current tournaments that are organized through France.
   * Clickable phone number
 
 
-## Author
+Author
+------
 Henri BUYSE
 
 Mail :   henri.buyse@gmail.com
