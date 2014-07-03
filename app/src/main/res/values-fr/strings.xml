@@ -4,6 +4,7 @@
     <!-- Application Specificity -->
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
+    <string name="author">Créée par Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
     <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nRéessayer plus tard.</string>
 

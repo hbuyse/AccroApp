@@ -5,6 +5,7 @@
     <string name="app_name">AccroDesTournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
     <string name="website">http://www.accro-des-tournois.com</string>
+    <string name="author">Created by Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
     <string name="no_connection">You are not connected to Internet.\nTry later.</string>
 
