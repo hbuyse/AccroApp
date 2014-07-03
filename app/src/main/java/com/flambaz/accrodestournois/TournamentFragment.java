@@ -151,7 +151,7 @@ public class TournamentFragment extends Fragment {
                 /* Definition of the LinearLayout parameters
                  */
                 linearLayout.setOrientation(LinearLayout.VERTICAL);
-                linearLayout.setBackgroundResource(R.drawable.border_rounded);
+                linearLayout.setBackgroundResource(R.drawable.item_tournament_shape);
 
 
                 String _title = i.select("h3").text();
