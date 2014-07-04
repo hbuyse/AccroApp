@@ -25,7 +25,8 @@
     <dimen name="fontDescriptionTournament">14sp</dimen>
 
     <!-- DRAWABLE -->
-    <dimen name="paddingBorderRounded">7sp</dimen>
-    <dimen name="roundedCorner">5sp</dimen>
+    <dimen name="paddingBorderRounded">7dip</dimen>
+    <dimen name="paddingTitleTournament">20dip</dimen>
+    <dimen name="roundedCorner">5dip</dimen>
     <dimen name="borderSize">2px</dimen>
 </resources>
