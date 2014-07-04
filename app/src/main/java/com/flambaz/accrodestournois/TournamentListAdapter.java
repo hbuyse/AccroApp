@@ -2,7 +2,6 @@ package com.flambaz.accrodestournois;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -95,12 +94,10 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 ll.setOrientation(LinearLayout.VERTICAL);
 
                 int width = (int) (getContext().getResources().getDisplayMetrics().density * 40f + 0.5f);
-                Log.i("Width", " " + width);
                 LinearLayout.LayoutParams ll_params = new LinearLayout.LayoutParams(
                         width, LinearLayout.LayoutParams.MATCH_PARENT);
 
                 int margin_right = (int) (this.context.getResources().getDisplayMetrics().density * 4f + 0.5f);
-                Log.i("Margin Right", " " + margin_right);
                 ll_params.setMargins(0, 0, margin_right, 0);
 
 

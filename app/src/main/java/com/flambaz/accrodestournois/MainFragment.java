@@ -124,7 +124,6 @@ public class MainFragment extends ListFragment {
                     String link = i.select("a").first().attr("abs:href");
 
                     int nbJour = i.select("div[class=calendrierjour]").size();
-                    Log.i("NBDAY", place.text() + " / " + nbJour);
 
                     tournamentArrayList.add(new Tournament(place.text().toUpperCase(),
                             detail.text(), days, months, link, nbJour));

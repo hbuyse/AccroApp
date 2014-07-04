@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -57,7 +58,7 @@ public class TournamentFragment extends Fragment {
     /* Asynchronous task which download the source code of the website accro-des-tournois
      */
     private class ParseWebSite extends AsyncTask<Void, Void, Void> {
-        private Context mContext;
+        private Context context;
         private View rootView;
 
 
@@ -65,16 +66,70 @@ public class TournamentFragment extends Fragment {
          * With those things, I can now pass show the ProgressDialog.
          */
         public ParseWebSite(Context context, View rootView) {
-            this.mContext = context;
+            this.context = context;
             this.rootView = rootView;
         }
 
 
+        protected String specialChar(String _string){
+            String temp = _string;
+            Log.i("String", _string);
+            temp = temp.replace(" <br /> <br />", "")
+                .replace("<br /> ", "")
+                .replace("<br />", "\n")
+                .replace("&quot;", "\"")
+                .replace("&amp;", "&")
+                .replace("&apos;", "\'")
+                .replace("&raquo;", "\"")
+                .replace("&laquo;", "\"");
+
+            // Letter A
+            temp = temp.replace("&agrave;", "à")
+                .replace("&acirc;", "â");
+
+            // Letter C
+            temp = temp.replace("&ccedil;", "ç");
+
+            // Letter E
+            temp = temp.replace("&eacute;", "é")
+                .replace("&ecirc;", "ê")
+                .replace("&egrave;", "è")
+                .replace("&euml;", "ë");
+
+            // Letter I
+            temp = temp.replace("&iuml;", "ï")
+                .replace("&icirc;", "î");
+
+            // Letter O
+            temp = temp.replace("&ouml;", "ö")
+                .replace("&ocirc;", "ô");
+
+            // Letter U
+            temp = temp.replace("&ucirc;", "û")
+                .replace("&uuml;", "ü");
+
+            // Letter Y
+            temp = temp.replace("&uuml;", "ÿ");
+
+            return temp.trim();
+        }
+
+
         private void parse() {
+            /* Creation of the ruler
+             */
+            View ruler = new View(getActivity());
+            int height_ruler = (int) (getActivity().getResources().getDisplayMetrics().density * 1f + 0.5f);
+            ViewGroup.LayoutParams ruler_params = new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, height_ruler);
+            ruler.setBackgroundColor(getResources().getColor(R.color.font));
+            
+
             /* Definition of the LinearLayout used for showing the tournament
              */
             LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.textV);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             params.setMargins(0, 0, 0, 20);
 
 
@@ -137,6 +192,12 @@ public class TournamentFragment extends Fragment {
              * *******************
              */
             for (Element i : _elementTournaments) {
+
+                View ruler1 = new View(getActivity());
+                int height_ruler1 = (int) (getActivity().getResources().getDisplayMetrics().density * 1f + 0.5f);
+                ViewGroup.LayoutParams ruler_params1 = new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, height_ruler1);
+                ruler1.setBackgroundColor(getResources().getColor(R.color.font));
                 /* Definition of the Linear Layout
                  */
                 LinearLayout linearLayout = new LinearLayout(getActivity());
@@ -158,11 +219,7 @@ public class TournamentFragment extends Fragment {
 
                 String _title = i.select("h3").text();
                 String _description = i.select("div").html();
-                _description.replace("<br /> ", "");
-                _description.replace("<br />", "");
-                _description.replace("&eacute;", "é");
-                _description.replace("&egrave;", "è");
-                _description.replace("&agrave;", "à");
+                Log.i("Description", _description);
 
                 TextView title = new TextView(getActivity());
                 title.setText(_title);
@@ -171,7 +228,7 @@ public class TournamentFragment extends Fragment {
                 title.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
 
                 TextView description = new TextView(getActivity());
-                description.setText(_description);
+                description.setText(specialChar(_description));
                 description.setGravity(Gravity.START);
                 description.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                 description.setLineSpacing(5, 1);
@@ -180,6 +237,7 @@ public class TournamentFragment extends Fragment {
                 /* Adding to the LinearLayout that will be added after that
                  */
                 linearLayout.addView(title, paramsTitle);
+                linearLayout.addView(ruler1, ruler_params1);
                 linearLayout.addView(description, paramsDescr);
 
 
@@ -227,7 +285,7 @@ public class TournamentFragment extends Fragment {
              * ********************************
              */
             if (!_tdetails.last().text().isEmpty()) {
-                additionalInfo.setText(_tdetails.last().html().replace("<br /><br />", "").replace("<br />", "\n").replace("&eacute;", "é").replace("&egrave", "è").replace("&agrave", "à"));
+                additionalInfo.setText(specialChar(_tdetails.last().html()));
                 additionalInfo.setVisibility(View.VISIBLE);
             }
         }
