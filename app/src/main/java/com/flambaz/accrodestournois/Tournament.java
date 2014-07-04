@@ -30,12 +30,7 @@ public class Tournament {
     public Tournament(String place, String detail, Elements days, Elements months, String link, int nbday) {
         super();
         this.place = place;
-        this.detail = detail + " / " + nbday + " ";
-        if (nbday == 1) {
-            this.detail += "day";
-        } else {
-            this.detail += "days";
-        }
+        this.detail = detail;
         this.days = days;
         this.months = months;
         this.link = link;

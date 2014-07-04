@@ -94,12 +94,12 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 LinearLayout ll = new LinearLayout(this.context);
                 ll.setOrientation(LinearLayout.VERTICAL);
 
-                int width = (int) (getContext().getResources().getDisplayMetrics().density * 50f + 0.5f);
+                int width = (int) (getContext().getResources().getDisplayMetrics().density * 40f + 0.5f);
                 Log.i("Width", " " + width);
                 LinearLayout.LayoutParams ll_params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
+                        width, LinearLayout.LayoutParams.MATCH_PARENT);
 
-                int margin_right = (int) (this.context.getResources().getDisplayMetrics().density * 5f + 0.5f);
+                int margin_right = (int) (this.context.getResources().getDisplayMetrics().density * 4f + 0.5f);
                 Log.i("Margin Right", " " + margin_right);
                 ll_params.setMargins(0, 0, margin_right, 0);
 
@@ -137,7 +137,7 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
 
                 /* Adding the linearlayout vertical to the linearlayout horizontal
                  */
-                dayMonth.addView(ll);
+                dayMonth.addView(ll, ll_params);
             }
         }
 

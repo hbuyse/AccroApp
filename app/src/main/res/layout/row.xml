@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:background="@drawable/item_shape"
-    android:padding="4dip">
-    <!--android:layout_height="?android:attr/listPreferredItemHeight"-->
+    android:padding="4dip" >
+
     <LinearLayout
         android:id="@+id/day_month"
         android:layout_width="wrap_content"
@@ -17,20 +17,19 @@
         <LinearLayout
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="0dip"
-            android:layout_marginRight="5dip"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:layout_marginRight="4dip" >
 
            <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="20dip"
-            android:layout_marginTop="0dip"
-            android:background="@drawable/month_shape"
-            android:gravity="center"
-            android:text="@string/sizeMonth"
-            android:textColor="@color/font_month"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:layout_marginTop="0dip"
+                android:background="@drawable/month_shape"
+                android:gravity="center"
+                android:text="@string/sizeMonth"
+                android:textColor="@color/font_month"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -48,7 +47,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="0dip"
-            android:layout_marginRight="5dip"
+            android:layout_marginRight="4dip"
             android:orientation="vertical" >
 
             <TextView
@@ -78,7 +77,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="0dip"
-            android:layout_marginRight="5dip"
+            android:layout_marginRight="4dip"
             android:orientation="vertical" >
 
             <TextView
