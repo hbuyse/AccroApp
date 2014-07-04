@@ -143,8 +143,10 @@ public class TournamentFragment extends Fragment {
 
                 /* Parameters that will be used when we add a TextView
                  */
-                LinearLayout.LayoutParams paramsTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                LinearLayout.LayoutParams paramsDescr = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                LinearLayout.LayoutParams paramsTitle = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                LinearLayout.LayoutParams paramsDescr = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 paramsDescr.setMargins(0, 15, 0, 0);
 
 
@@ -155,7 +157,12 @@ public class TournamentFragment extends Fragment {
 
 
                 String _title = i.select("h3").text();
-                String _description = i.select("div").html().replace("<br /> ", "").replace("<br />", "").replace("&eacute;", "é").replace("&egrave", "è").replace("&agrave", "à");
+                String _description = i.select("div").html();
+                _description.replace("<br /> ", "");
+                _description.replace("<br />", "");
+                _description.replace("&eacute;", "é");
+                _description.replace("&egrave;", "è");
+                _description.replace("&agrave;", "à");
 
                 TextView title = new TextView(getActivity());
                 title.setText(_title);

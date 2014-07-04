@@ -4,27 +4,30 @@ package com.flambaz.accrodestournois;
  * http://hmkcode.com/android-custom-listview-items-row/
  */
 
+import org.jsoup.select.Elements;
+
 public class Tournament {
     private String place;
     private String detail;
-    private String day;
-    private String month;
+    private Elements days;
+    private Elements months;
     private String link;
+    private int nbday;
 
 
     public Tournament() {
         super();
         this.place = null;
         this.detail = null;
-        this.day = null;
-        this.month = null;
+        this.days = null;
+        this.months = null;
         this.link = null;
     }
 
 
     /* Parametered constructor : allow to pass all the informations necessary that we show in the row of the ListView
      */
-    public Tournament(String place, String detail, String day, String month, String link, int nbday) {
+    public Tournament(String place, String detail, Elements days, Elements months, String link, int nbday) {
         super();
         this.place = place;
         this.detail = detail + " / " + nbday + " ";
@@ -33,20 +36,21 @@ public class Tournament {
         } else {
             this.detail += "days";
         }
-        this.day = day;
-        this.month = month;
+        this.days = days;
+        this.months = months;
         this.link = link;
+        this.nbday = nbday;
     }
 
 
     /* Getters
      */
-    public String getDay() {
-        return this.day;
+    public String getDay(int index) {
+        return this.days.get(index).text();
     }
 
-    public String getMonth() {
-        return this.month;
+    public String getMonth(int index) {
+        return this.months.get(index).text();
     }
 
     public String getPlace() {
@@ -59,5 +63,9 @@ public class Tournament {
 
     public String getLink() {
         return this.link;
+    }
+
+    public int getNbDay() {
+        return this.nbday;
     }
 }

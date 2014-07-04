@@ -1,4 +1,4 @@
-package com.flambaz.myapplication;
+package com.flambaz.accrodestournois;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

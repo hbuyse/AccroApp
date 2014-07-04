@@ -13,7 +13,8 @@
     <dimen name="hauteurJour">30dp</dimen>
     <dimen name="margeDateHaut">4dp</dimen>
     <dimen name="margeDateBas">4dp</dimen>
-    <dimen name="largeurDateMois">50dp</dimen>
+    <dimen name="widthDayMonth">50dp</dimen>
+    <dimen name="heightMonth">20dp</dimen>
 
     <!-- Taille des polices -->
     <dimen name="fontLieu">16sp</dimen>
