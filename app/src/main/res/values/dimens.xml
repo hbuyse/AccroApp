@@ -13,7 +13,8 @@
     <dimen name="hauteurJour">30dp</dimen>
     <dimen name="margeDateHaut">4dp</dimen>
     <dimen name="margeDateBas">4dp</dimen>
-    <dimen name="largeurDateMois">50dp</dimen>
+    <dimen name="widthDayMonth">50dp</dimen>
+    <dimen name="heightMonth">20dp</dimen>
 
     <!-- Taille des polices -->
     <dimen name="fontLieu">16sp</dimen>
@@ -24,7 +25,8 @@
     <dimen name="fontDescriptionTournament">14sp</dimen>
 
     <!-- DRAWABLE -->
-    <dimen name="paddingBorderRounded">7sp</dimen>
-    <dimen name="roundedCorner">5sp</dimen>
+    <dimen name="paddingBorderRounded">7dip</dimen>
+    <dimen name="paddingTitleTournament">20dip</dimen>
+    <dimen name="roundedCorner">5dip</dimen>
     <dimen name="borderSize">2px</dimen>
 </resources>

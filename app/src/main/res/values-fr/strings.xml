@@ -33,14 +33,14 @@
 
 
     <!-- INFORMATIONS COMPLÉMENTAIRES -->
-    <string name="additionalInfo"><u>Infos complémentaires</u></string>
+    <string name="additionalInfo">Infos complémentaires</string>
     <string name="infos">
         Heure de début de tournoi\nToto
     </string>
 
 
     <!-- CONTACT -->
-    <string name="contact"><u>Contact</u></string>
+    <string name="contact">Contact</string>
     <string name="contactName">Nom du contact</string>
     <string name="contactPhone">06 00 00 00 00</string>
     <string name="contactWebsite">Site du tournoi</string>

@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TournamentListFragment extends ListFragment {
+public class MainFragment extends ListFragment {
     /* URL Address
      */
     static String url = "http://www.accro-des-tournois.com";
@@ -34,7 +35,7 @@ public class TournamentListFragment extends ListFragment {
     private ArrayList<Tournament> tournamentArrayList = new ArrayList<Tournament>();
 
 
-    public TournamentListFragment() {
+    public MainFragment() {
     }
 
 
@@ -54,14 +55,13 @@ public class TournamentListFragment extends ListFragment {
             Toast.makeText(getActivity(),
                     getActivity().getResources().getString(R.string.no_connection),
                     Toast.LENGTH_LONG).show();
-            getActivity().finish();
         }
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_tournament_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         return rootView;
     }
 
@@ -111,27 +111,34 @@ public class TournamentListFragment extends ListFragment {
             try {
                 /* Connection to the website defined bu 'url'
                  */
-                Document webPage = Jsoup.connect(url).get();
+                Document webPage = Jsoup.connect(url).timeout(10*1000).get();
 
                 /* Recovering the datas from the HTML
                  */
                 tournaments = webPage.select("li[class=elementtournoi]");
+                for ( Element i : tournaments ) {
+                    Element place = i.select("div[class=annucontent] h3").first();
+                    Element detail = i.select("div[class=annucontent] div").first();
+                    Elements days = i.select("div[class=calendrierjour]");
+                    Elements months = i.select("div[class=calendriermois]");
+                    String link = i.select("a").first().attr("abs:href");
 
-                for (int i = 0; i < tournaments.size(); i++) {
-                    Element place = tournaments.get(i).select("div[class=annucontent] h3").first();
-                    Element detail = tournaments.get(i).select("div[class=annucontent] div").first();
-                    Element day = tournaments.get(i).select("div[class=calendrierjour]").first();
-                    Element month = tournaments.get(i).select("div[class=calendriermois]").first();
-                    String link = tournaments.get(i).select("a").first().attr("abs:href");
+                    int nbJour = i.select("div[class=calendrierjour]").size();
 
-                    int nbJour = tournaments.get(i).select("div[class=calendrierjour]").size();
-
-                    tournamentArrayList.add(new Tournament(place.text().toUpperCase(), detail.text(), day.text(), month.text(), link, nbJour));
+                    tournamentArrayList.add(new Tournament(place.text().toUpperCase(),
+                            detail.text(), days, months, link, nbJour));
                 }
 
-            } catch (IOException e) {
+            }
+            catch (java.net.SocketTimeoutException e){
+                e.printStackTrace();
+                Log.e("TIMEOUT", "TournamentListFragment");
+            }
+            catch (IOException e) {
                 e.printStackTrace();
             }
+
+
 
             return null;
         }
@@ -154,7 +161,8 @@ public class TournamentListFragment extends ListFragment {
              * the fragment may show itself but without the data.
              * It will exhibit itself before the thread ends.
              */
-            TournamentListAdapter m_adapter = new TournamentListAdapter(getActivity(), R.layout.row, tournamentArrayList);
+            TournamentListAdapter m_adapter = new TournamentListAdapter(getActivity(), R.layout.row,
+                    tournamentArrayList);
             setListAdapter(m_adapter);
         }
     }

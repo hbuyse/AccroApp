@@ -13,12 +13,12 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tournament_list);
+        setContentView(R.layout.activity_main);
 
         /* Create the list fragment and add it as our sole content.
          */
         if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
-            TournamentListFragment list = new TournamentListFragment();
+            MainFragment list = new MainFragment();
             getFragmentManager().beginTransaction().add(R.id.containerMain, list).commit();
         }
     }

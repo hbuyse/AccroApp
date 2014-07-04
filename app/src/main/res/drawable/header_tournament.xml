@@ -8,6 +8,11 @@
 
     <solid android:color="@color/darkorange" />
 
-
     <corners android:radius="5dip" />
+
+    <padding
+        android:bottom="@dimen/paddingTitleTournament"
+        android:left="@dimen/paddingTitleTournament"
+        android:right="@dimen/paddingTitleTournament"
+        android:top="@dimen/paddingTitleTournament" />
 </shape>
