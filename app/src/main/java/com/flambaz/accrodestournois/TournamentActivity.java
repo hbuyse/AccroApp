@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class TournamentActivity extends FragmentActivity {
 
@@ -47,11 +48,17 @@ public class TournamentActivity extends FragmentActivity {
          * automatically handle clicks on the Home/Up button, so long
          * as you specify a parent activity in AndroidManifest.xml.
          */
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Toast.makeText(this, "To implement", Toast.LENGTH_SHORT);
+                return true;
 
+            case R.id.refresh:
+                recreate();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 }
