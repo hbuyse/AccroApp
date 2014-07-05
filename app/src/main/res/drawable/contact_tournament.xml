@@ -11,8 +11,8 @@
     <corners android:radius="5dip" />
 
     <padding
-        android:bottom="@dimen/paddingHeaderTournament"
-        android:left="@dimen/paddingHeaderTournament"
-        android:right="@dimen/paddingHeaderTournament"
-        android:top="@dimen/paddingHeaderTournament" />
+        android:bottom="@dimen/paddingContactTournament"
+        android:left="@dimen/paddingContactTournament"
+        android:right="@dimen/paddingContactTournament"
+        android:top="@dimen/paddingContactTournament" />
 </shape>

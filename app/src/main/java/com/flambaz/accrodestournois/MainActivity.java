@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-
     /* Called when the activity is first created.
      */
     public void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,17 @@ public class MainActivity extends Activity {
          * automatically handle clicks on the Home/Up button, so long
          * as you specify a parent activity in AndroidManifest.xml.
          */
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Toast.makeText(this, "To implement", Toast.LENGTH_SHORT);
+                return true;
+
+            case R.id.refresh:
+                recreate();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
         }
-        return super.onOptionsItemSelected(item);
     }
 }

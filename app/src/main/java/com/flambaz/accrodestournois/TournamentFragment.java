@@ -10,12 +10,12 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -210,9 +210,13 @@ public class TournamentFragment extends Fragment {
             variousInfos.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
             variousInfos.setText(_variousInfos);
 
-            // Adding the view to the
-            int marginTop = (int) (getResources().getDisplayMetrics().density * 5f + 0.5f);
-            viewsParams.setMargins(0, marginTop, 0, 0);
+            /* Adding the view to the linearlayout
+             * If there is a  title, then we put a margin to the various infos textview
+             */
+            if (!_subtitleTournament.equals("")) {
+                int marginTop = (int) (getResources().getDisplayMetrics().density * 5f + 0.5f);
+                viewsParams.setMargins(0, marginTop, 0, 0);
+            }
             ll.addView(variousInfos, viewsParams);
 
 
@@ -322,7 +326,7 @@ public class TournamentFragment extends Fragment {
             TextView publisher = new TextView(getActivity());
 
             publisher.setGravity(Gravity.END);
-            publisher.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+            publisher.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             publisher.setTextColor(getResources().getColor(R.color.font));
             publisher.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
             publisher.setText(getString(R.string.publisher) + " " + _publisher);
@@ -338,173 +342,141 @@ public class TournamentFragment extends Fragment {
 
 
             // Orientation of the LinearLayout and background
-            ll.setOrientation(LinearLayout.VERTICAL);
-            ll.setBackgroundResource(R.drawable.item_tournament_shape);
+            ll.setBackgroundResource(R.drawable.contact_tournament);
 
 
-            // Width and height for the Views
+            // Width, height and weight for the Views
             LinearLayout.LayoutParams viewsParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
 
 
-
-            /* *******************
-             * * TITLE - CONTACT *
-             * *******************
-             */
-            TextView title = new TextView(getActivity());
-
-
-            // Making the design of the title of the Additional Infos view
-            title.setGravity(Gravity.START);
-            title.setTextColor(getResources().getColor(R.color.font));
-            title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
-            title.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
-            title.setText(getResources().getString(R.string.contact));
-
-
-            // Adding the view to the layout
-            ll.addView(title, viewsParams);
-
-
-            /* *********
-             * * RULER *
-             * *********
-             */
-            View ruler = new View(getActivity());
-            int height_ruler = (int) (getActivity().getResources().getDisplayMetrics().density * 1f + 0.5f);
-            ViewGroup.LayoutParams ruler_params = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, height_ruler);
-            ruler.setBackgroundColor(getResources().getColor(R.color.font));
-
-            // Adding the view to the
-            ll.addView(ruler, ruler_params);
-
-
-            /* ****************
-             * * CONTACT PART *
-             * ****************
-             */
-
+            // Part of webPage
             Elements _tdetails = webPage.select("div[id=tdetails] p");
 
 
-            // GETTING THE URL OF THE CLUB WEBPAGE
-            String tmp = "";
-            for (Element i : _tdetails) {
-                String addr = i.getElementsContainingText("Site du tournoi").attr("href");
-                if (!addr.isEmpty()) {
-                    tmp = addr;
-                    Log.i("WEBSITE ADDR", tmp);
-                }
-            }
-            final String websiteAddr = tmp;
-
-
-            // GETTING THE URL OF THE WEBPAGE TO SEND A MESSAGE TO THE PROMOTER
-            tmp = "";
-            for (Element i : _tdetails) {
-                String addr = i.getElementsContainingText("Envoyer un message").attr("href");
-                if (!addr.isEmpty()) {
-                    tmp = addr;
-                    Log.i("MAIL    ADDR", tmp);
-                }
-            }
-            final String mailAddr = tmp;
-
-
-
-            TextView contactName = new TextView(getActivity());
-            final TextView contactPhone = new TextView(getActivity());
-            final TextView contactWebsite = new TextView(getActivity());
-            final TextView contactMail = new TextView(getActivity());
+            final TextView  contactName = new TextView(getActivity());
+            final ImageView contactPhone = new ImageView(getActivity());
+            final ImageView contactMail = new ImageView(getActivity());
+            final ImageView contactWebsite = new ImageView(getActivity());
+            final ImageView contactAddr = new ImageView(getActivity());
 
             contactName.setVisibility(View.GONE);
             contactPhone.setVisibility(View.GONE);
             contactWebsite.setVisibility(View.GONE);
             contactMail.setVisibility(View.GONE);
+            contactAddr.setVisibility(View.GONE);
 
-            contactName.setGravity(Gravity.START);
-            contactName.setTextColor(getResources().getColor(R.color.font));
+
+            // Making the design of the title of the Additional Infos view
+            contactName.setGravity(Gravity.CENTER_VERTICAL);
+            contactName.setTextColor(getResources().getColor(R.color.white));
             contactName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             contactName.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
 
-            contactPhone.setGravity(Gravity.START);
-            contactPhone.setTextColor(getResources().getColor(R.color.font));
-            contactPhone.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-            contactPhone.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+
+            // Design of the contact phone image
+            contactPhone.setImageResource(R.drawable.ic_action_call);
             contactPhone.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                    callIntent.setData(Uri.parse("tel:" + contactPhone.getText().toString().trim()));
+                    callIntent.setData(Uri.parse("tel:" + contactPhone.getContentDescription().toString().trim()));
                     startActivity(callIntent );
                 }
             });
 
-            contactWebsite.setGravity(Gravity.START);
-            contactWebsite.setTextColor(getResources().getColor(R.color.font));
-            contactWebsite.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-            contactWebsite.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+
+            // GETTING THE URL OF THE CLUB WEBPAGE
+            for (Element i : _tdetails) {
+                String addr = i.getElementsContainingText("Site du tournoi").attr("href");
+                if (!addr.isEmpty()) {
+                    contactWebsite.setContentDescription(addr);
+                }
+            }
+
+
+            // GETTING THE URL OF THE WEBPAGE TO SEND A MESSAGE TO THE PROMOTER
+            for (Element i : _tdetails) {
+                String addr = i.getElementsContainingText("Envoyer un message").attr("href");
+                if (!addr.isEmpty()) {
+                    contactMail.setContentDescription(addr);
+                }
+            }
+
+
+            // Design of the contact website image
+            contactWebsite.setImageResource(R.drawable.ic_action_web_site);
             contactWebsite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(websiteAddr));
+                    i.addCategory(Intent.CATEGORY_BROWSABLE);
+                    i.setData(Uri.parse(contactWebsite.getContentDescription().toString().trim()));
                     startActivity(i);
                 }
             });
 
-            contactMail.setGravity(Gravity.START);
-            contactMail.setTextColor(getResources().getColor(R.color.font));
-            contactMail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-            contactMail.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+
+            // Design of the contact mail image
+            contactMail.setImageResource(R.drawable.ic_action_email);
             contactMail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(mailAddr));
+                    i.setData(Uri.parse(contactMail.getContentDescription().toString().trim()));
                     startActivity(i);
                 }
             });
 
-            // Adding the view to the
-            int marginTop = (int) (getResources().getDisplayMetrics().density * 1f + 0.5f);
-            viewsParams.setMargins(0, marginTop, 0, 0);
+
+            // Design of the contact address
+            contactAddr.setVisibility(View.VISIBLE);
+            contactAddr.setContentDescription(_tdetails.select("a[href]").first().attr("href"));
+            contactAddr.setImageResource(R.drawable.ic_action_place);
+            contactAddr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(contactAddr.getContentDescription().toString().trim()));
+                    startActivity(i);
+                }
+            });
+
 
             for (Element i : _tdetails) {
                 /* Is there a contact name?
                  */
                 if (!i.select("span[class=usericon]").isEmpty()) {
-                    contactName.setText(i.text());
+                    contactName.setText(specialChar(i.text()));
                     contactName.setVisibility(View.VISIBLE);
-                    ll.addView(contactName, viewsParams);
                 }
 
                 /* Is there a phone number?
                  */
                 if (!i.select("span[class=phoneicon]").isEmpty()) {
-                    contactPhone.setText(i.text().replace(".", "").replace(" ", "").replace("-", ""));
+                    contactPhone.setContentDescription(i.text().replace(".", "").replace(" ", "").replace("-", ""));
                     contactPhone.setVisibility(View.VISIBLE);
-                    ll.addView(contactPhone, viewsParams);
                 }
 
                 /* Is there a mail address?
                  */
                 if (!i.select("span[class=mailicon]").isEmpty()) {
-                    contactMail.setText(getResources().getString(R.string.contactMail));
                     contactMail.setVisibility(View.VISIBLE);
-                    ll.addView(contactMail, viewsParams);
                 }
 
                 /* Is there a website?
                  */
                 if (!i.select("span[class=mouseicon]").isEmpty()) {
-                    contactWebsite.setText(getResources().getString(R.string.contactWebsite));
                     contactWebsite.setVisibility(View.VISIBLE);
-                    ll.addView(contactWebsite, viewsParams);
                 }
             }
+
+
+            ll.addView(contactName, viewsParams);
+            ll.addView(contactPhone, viewsParams);
+            ll.addView(contactMail, viewsParams);
+            ll.addView(contactWebsite, viewsParams);
+            ll.addView(contactAddr, viewsParams);
 
             return ll;
         }
@@ -521,10 +493,14 @@ public class TournamentFragment extends Fragment {
             params.setMargins(0, marginTopViews, 0, 0);
 
 
-            // ADDING THE HEADERLinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+            // ADDING THE HEADER
             LinearLayout.LayoutParams paramsHeader = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             ll.addView(header(webPage), paramsHeader);
+
+
+            // ADDING THE CONTACT PART
+            ll.addView(contact(webPage), params);
 
 
 
@@ -591,10 +567,6 @@ public class TournamentFragment extends Fragment {
 
             // ADDING THE ADDITIONAL INFORMATIONS
             ll.addView(additionalInfos(webPage), params);
-
-
-            // ADDING THE CONTACT PART
-            ll.addView(contact(webPage), params);
 
 
             // ADDING THE PUBLISHER OF THE TOURNAMENT
