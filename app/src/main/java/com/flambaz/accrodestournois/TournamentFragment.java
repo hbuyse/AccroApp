@@ -3,11 +3,14 @@ package com.flambaz.accrodestournois;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -386,10 +389,35 @@ public class TournamentFragment extends Fragment {
             Elements _tdetails = webPage.select("div[id=tdetails] p");
 
 
+            // GETTING THE URL OF THE CLUB WEBPAGE
+            String tmp = "";
+            for (Element i : _tdetails) {
+                String addr = i.getElementsContainingText("Site du tournoi").attr("href");
+                if (!addr.isEmpty()) {
+                    tmp = addr;
+                    Log.i("WEBSITE ADDR", tmp);
+                }
+            }
+            final String websiteAddr = tmp;
+
+
+            // GETTING THE URL OF THE WEBPAGE TO SEND A MESSAGE TO THE PROMOTER
+            tmp = "";
+            for (Element i : _tdetails) {
+                String addr = i.getElementsContainingText("Envoyer un message").attr("href");
+                if (!addr.isEmpty()) {
+                    tmp = addr;
+                    Log.i("MAIL    ADDR", tmp);
+                }
+            }
+            final String mailAddr = tmp;
+
+
+
             TextView contactName = new TextView(getActivity());
-            TextView contactPhone = new TextView(getActivity());
-            TextView contactWebsite = new TextView(getActivity());
-            TextView contactMail = new TextView(getActivity());
+            final TextView contactPhone = new TextView(getActivity());
+            final TextView contactWebsite = new TextView(getActivity());
+            final TextView contactMail = new TextView(getActivity());
 
             contactName.setVisibility(View.GONE);
             contactPhone.setVisibility(View.GONE);
@@ -405,16 +433,40 @@ public class TournamentFragment extends Fragment {
             contactPhone.setTextColor(getResources().getColor(R.color.font));
             contactPhone.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             contactPhone.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+            contactPhone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                    callIntent.setData(Uri.parse("tel:" + contactPhone.getText().toString().trim()));
+                    startActivity(callIntent );
+                }
+            });
 
             contactWebsite.setGravity(Gravity.START);
             contactWebsite.setTextColor(getResources().getColor(R.color.font));
             contactWebsite.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             contactWebsite.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+            contactWebsite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(websiteAddr));
+                    startActivity(i);
+                }
+            });
 
             contactMail.setGravity(Gravity.START);
             contactMail.setTextColor(getResources().getColor(R.color.font));
             contactMail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             contactMail.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+            contactMail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(mailAddr));
+                    startActivity(i);
+                }
+            });
 
             // Adding the view to the
             int marginTop = (int) (getResources().getDisplayMetrics().density * 1f + 0.5f);
@@ -432,7 +484,7 @@ public class TournamentFragment extends Fragment {
                 /* Is there a phone number?
                  */
                 if (!i.select("span[class=phoneicon]").isEmpty()) {
-                    contactPhone.setText(i.text().replace(".", " ").replace("-", " "));
+                    contactPhone.setText(i.text().replace(".", "").replace(" ", "").replace("-", ""));
                     contactPhone.setVisibility(View.VISIBLE);
                     ll.addView(contactPhone, viewsParams);
                 }
@@ -464,14 +516,15 @@ public class TournamentFragment extends Fragment {
             LinearLayout ll = (LinearLayout) rootView.findViewById(R.id.layoutTournament);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            int marginTop = (int)
+            int marginTopViews = (int)
                     (getActivity().getResources().getDisplayMetrics().density * 15f + 0.5f);
-            params.setMargins(0, marginTop, 0, 0);
+            params.setMargins(0, marginTopViews, 0, 0);
 
 
-
-            // ADDING THE HEADER
-            ll.addView(header(webPage), params);
+            // ADDING THE HEADERLinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams paramsHeader = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            ll.addView(header(webPage), paramsHeader);
 
 
 

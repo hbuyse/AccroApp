@@ -104,31 +104,38 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/place"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/day_month"
-        android:gravity="center_vertical"
-        android:text="@string/tournamentPlace"
-        android:textColor="@color/font"
-        android:textSize="16sp" />
+        android:layout_toRightOf="@id/day_month" >
 
-    <TextView
-        android:id="@+id/details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/place"
-        android:layout_toRightOf="@id/day_month"
-        android:gravity="center_vertical"
-        android:singleLine="true"
-        android:text="@string/tournamentDetails"
-        android:textColor="@color/font"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/place"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/tournamentPlace"
+            android:textColor="@color/font"
+            android:textSize="16sp"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/tournamentDetails"
+            android:textColor="@color/font"
+            android:textSize="12sp"
+            android:singleLine="true" />
+
+    </LinearLayout>
+
 
 </RelativeLayout> 
