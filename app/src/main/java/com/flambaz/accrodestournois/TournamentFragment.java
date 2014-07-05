@@ -342,7 +342,6 @@ public class TournamentFragment extends Fragment {
 
 
             // Orientation of the LinearLayout and background
-            ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setBackgroundResource(R.drawable.contact_tournament);
 
 
@@ -430,17 +429,26 @@ public class TournamentFragment extends Fragment {
             });
 
 
-            // Adding the view to the
-//            int marginTop = (int) (getResources().getDisplayMetrics().density * 1f + 0.5f);
-//            viewsParams.setMargins(0, marginTop, 0, 0);
+            // Design of the contact address
+            contactAddr.setVisibility(View.VISIBLE);
+            contactAddr.setContentDescription(_tdetails.select("a[href]").first().attr("href"));
+            contactAddr.setImageResource(R.drawable.ic_action_place);
+            contactAddr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(contactAddr.getContentDescription().toString().trim()));
+                    startActivity(i);
+                }
+            });
+
 
             for (Element i : _tdetails) {
                 /* Is there a contact name?
                  */
                 if (!i.select("span[class=usericon]").isEmpty()) {
-                    contactName.setText(i.text());
+                    contactName.setText(specialChar(i.text()));
                     contactName.setVisibility(View.VISIBLE);
-                    ll.addView(contactName, viewsParams);
                 }
 
                 /* Is there a phone number?
@@ -448,23 +456,27 @@ public class TournamentFragment extends Fragment {
                 if (!i.select("span[class=phoneicon]").isEmpty()) {
                     contactPhone.setContentDescription(i.text().replace(".", "").replace(" ", "").replace("-", ""));
                     contactPhone.setVisibility(View.VISIBLE);
-                    ll.addView(contactPhone, viewsParams);
                 }
 
                 /* Is there a mail address?
                  */
                 if (!i.select("span[class=mailicon]").isEmpty()) {
                     contactMail.setVisibility(View.VISIBLE);
-                    ll.addView(contactMail, viewsParams);
                 }
 
                 /* Is there a website?
                  */
                 if (!i.select("span[class=mouseicon]").isEmpty()) {
                     contactWebsite.setVisibility(View.VISIBLE);
-                    ll.addView(contactWebsite, viewsParams);
                 }
             }
+
+
+            ll.addView(contactName, viewsParams);
+            ll.addView(contactPhone, viewsParams);
+            ll.addView(contactMail, viewsParams);
+            ll.addView(contactWebsite, viewsParams);
+            ll.addView(contactAddr, viewsParams);
 
             return ll;
         }
