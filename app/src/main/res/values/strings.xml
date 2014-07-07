@@ -12,10 +12,11 @@
 
     <!-- Tournament Activity -->
     <string name="tournamentDate">Tournament date</string>
-    <string name="tournamentDetails">Tournament details + number of days</string>
+    <string name="tournamentDetails">Tournament details</string>
     <string name="tournamentPlace">Tournament place</string>
     <string name="sizeDay">16</string>
     <string name="sizeMonth">Jun</string>
+    <string name="surface">Surface</string>
 
 
     <!-- Menu Button -->
@@ -25,7 +26,7 @@
 
     <!-- ProgressDialog -->
     <string name="mainProgress">Retrieving the list of tournaments</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading&#8230;</string>
     <string name="tournamentProgress">Retrieving the tournament</string>
     <string name="timeout">Timeout</string>
 

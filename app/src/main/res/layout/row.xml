@@ -22,7 +22,8 @@
 
            <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="20dip"
+               android:layout_height="0dp"
+               android:layout_weight="1"
                 android:layout_marginTop="0dip"
                 android:background="@drawable/month_shape"
                 android:gravity="center"
@@ -33,7 +34,8 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="@drawable/day_shape"
                 android:gravity="center"
                 android:text="@string/sizeDay"
@@ -52,7 +54,8 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="20dip"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginTop="0dip"
                 android:background="@drawable/month_shape"
                 android:gravity="center"
@@ -63,7 +66,8 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="@drawable/day_shape"
                 android:gravity="center"
                 android:text="@string/sizeDay"
@@ -82,7 +86,8 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="20dip"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginTop="0dip"
                 android:background="@drawable/month_shape"
                 android:gravity="center"
@@ -93,7 +98,8 @@
 
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:background="@drawable/day_shape"
                 android:gravity="center"
                 android:text="@string/sizeDay"
@@ -135,7 +141,24 @@
             android:textSize="12sp"
             android:singleLine="true" />
 
+        <TextView
+            android:id="@+id/surface"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/surface"
+            android:textColor="@color/font"
+            android:textSize="12sp"
+            android:singleLine="true" />
+
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_beach"/>
 
 
 </RelativeLayout> 

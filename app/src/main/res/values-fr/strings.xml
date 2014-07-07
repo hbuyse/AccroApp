@@ -11,7 +11,7 @@
 
     <!-- Tournament Activity -->
     <string name="tournamentDate">Date du tournoi</string>
-    <string name="tournamentDetails">Détails du tournoi + nbJour</string>
+    <string name="tournamentDetails">Détails du tournoi</string>
     <string name="tournamentPlace">Lieu du tournoi</string>
     <string name="sizeDay">16</string>
     <string name="sizeMonth">Juin</string>
@@ -22,7 +22,7 @@
 
     <!-- ProgressDialog -->
     <string name="mainProgress">Récuperation de la liste</string>
-    <string name="loading">Chargement...</string>
+    <string name="loading">Chargement&#8230;</string>
     <string name="tournamentProgress">Récupération du tournoi</string>
 
 
