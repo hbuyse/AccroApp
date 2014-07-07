@@ -21,9 +21,9 @@
             android:layout_marginRight="4dip" >
 
            <TextView
-                android:layout_width="fill_parent"
-               android:layout_height="0dp"
-               android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginTop="0dip"
                 android:background="@drawable/month_shape"
                 android:gravity="center"
@@ -33,7 +33,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/day_shape"
@@ -53,7 +53,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="0dip"
@@ -65,7 +65,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/day_shape"
@@ -85,7 +85,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_marginTop="0dip"
@@ -97,7 +97,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@drawable/day_shape"
@@ -153,12 +153,6 @@
             android:singleLine="true" />
 
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/ic_beach"/>
 
 
 </RelativeLayout> 

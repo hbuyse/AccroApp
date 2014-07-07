@@ -55,4 +55,12 @@
     <string name="title_activity_main">SplashScreen</string>
     <string name="description_ic_launcher">Volley Ball</string>
 
+    <!-- Type of tournament -->
+    <string name="news">NEW</string>
+    <string name="full">FULL</string>
+    <string name="beach">Beach</string>
+    <string name="grass">Grass</string>
+    <string name="indoor">Indoor</string>
+
+
 </resources>

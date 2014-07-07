@@ -72,6 +72,7 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
             TextView placeView    = (TextView)     rowView.findViewById(R.id.place);
             TextView detailsView  = (TextView)     rowView.findViewById(R.id.details);
             LinearLayout dayMonth = (LinearLayout) rowView.findViewById(R.id.day_month);
+            TextView surfaceView  = (TextView)     rowView.findViewById(R.id.surface);
             dayMonth.removeAllViews();
 
             /* Check to see if each individual textview is null.
@@ -83,6 +84,41 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
 
             if (detailsView != null) {
                 detailsView.setText(i.getDetail());
+            }
+
+            if (surfaceView != null) {
+                switch (i.getType()) {
+                    case 1:
+                        surfaceView.setText(getContext().getString(R.string.beach));
+                        break;
+                    case 2:
+                        surfaceView.setText(getContext().getString(R.string.beach) + " - " + getContext().getString(R.string.news));
+                        break;
+                    case 3:
+                        surfaceView.setText(getContext().getString(R.string.beach) + " - " + getContext().getString(R.string.full));
+                        break;
+                    case 4:
+                        surfaceView.setText(getContext().getString(R.string.grass));
+                        break;
+                    case 5:
+                        surfaceView.setText(getContext().getString(R.string.grass) + " - " + getContext().getString(R.string.news));
+                        break;
+                    case 6:
+                        surfaceView.setText(getContext().getString(R.string.grass) + " - " + getContext().getString(R.string.full));
+                        break;
+                    case 7:
+                        surfaceView.setText(getContext().getString(R.string.indoor));
+                        break;
+                    case 8:
+                        surfaceView.setText(getContext().getString(R.string.indoor) + " - " + getContext().getString(R.string.news));
+                        break;
+                    case 9:
+                        surfaceView.setText(getContext().getString(R.string.indoor) + " - " + getContext().getString(R.string.full));
+                        break;
+                    default:
+                        surfaceView.setVisibility(View.GONE);
+                        break;
+                }
             }
 
             /* Adding the different day and month

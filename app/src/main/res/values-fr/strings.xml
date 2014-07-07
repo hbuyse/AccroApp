@@ -49,4 +49,12 @@
 
     <!-- Title Activity -->
     <string name="title_tournament">Tournoi</string>
+
+
+    <!-- Type of tournament -->
+    <string name="news">NOUVEAU</string>
+    <string name="full">PLEIN</string>
+    <string name="beach">Beach</string>
+    <string name="grass">Herbe</string>
+    <string name="indoor">Intérieur</string>
 </resources>

@@ -121,12 +121,13 @@ public class MainFragment extends ListFragment {
                     Element detail = i.select("div[class=annucontent] div").first();
                     Elements days = i.select("div[class=calendrierjour]");
                     Elements months = i.select("div[class=calendriermois]");
-                    String link = i.select("a").first().attr("abs:href");
+                    String link = i.select("a").first().attr("href");
+                    String surface = i.select("a").first().attr("class");
 
                     int nbJour = i.select("div[class=calendrierjour]").size();
 
                     tournamentArrayList.add(new Tournament(place.text().toUpperCase(),
-                            detail.text(), days, months, link, nbJour));
+                            detail.text(), days, months, link, nbJour, surface));
                 }
 
             }
