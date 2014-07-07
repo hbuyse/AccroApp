@@ -51,7 +51,7 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
          */
         if (rowView == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.row, null);
+            rowView = inflater.inflate(R.layout.row, parent, false);
         }
 
         /* Recall that the variable position is sent in as an argument to this method.
@@ -129,9 +129,9 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 LinearLayout ll = new LinearLayout(this.context);
                 ll.setOrientation(LinearLayout.VERTICAL);
 
-                int width = (int) (getContext().getResources().getDisplayMetrics().density * 40f + 0.5f);
+                int width_ll = (int) (getContext().getResources().getDisplayMetrics().density * 40f + 0.5f);
                 LinearLayout.LayoutParams ll_params = new LinearLayout.LayoutParams(
-                        width, LinearLayout.LayoutParams.MATCH_PARENT);
+                        width_ll, LinearLayout.LayoutParams.MATCH_PARENT);
 
                 int margin_right = (int) (this.context.getResources().getDisplayMetrics().density * 4f + 0.5f);
                 ll_params.setMargins(0, 0, margin_right, 0);
@@ -140,8 +140,8 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 /* Creation of a day and implementation
                  */
                 TextView day = new TextView(this.context);
-                ViewGroup.LayoutParams day_params = new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                LinearLayout.LayoutParams day_params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
                 day.setText(i.getDay(j));
                 day.setTextColor(rowView.getResources().getColor(R.color.font_day));
                 day.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -153,9 +153,8 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 /* Creation of a month and implementation
                  */
                 TextView month = new TextView(this.context);
-                int height = (int) (getContext().getResources().getDisplayMetrics().density * 20f + 0.5f);
-                ViewGroup.LayoutParams month_params = new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                LinearLayout.LayoutParams month_params = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
                 month.setText(i.getMonth(j));
                 month.setTextColor(rowView.getResources().getColor(R.color.font_month));
                 month.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -163,10 +162,11 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
                 month.setBackgroundResource(R.drawable.month_shape);
                 month.setGravity(Gravity.CENTER);
 
+
                 /* Adding the two views in the linearlayout vertical that create the day-month cell
                  */
-                ll.addView(month, 0, month_params);
-                ll.addView(day,   1, day_params);
+                ll.addView(month, month_params);
+                ll.addView(day  , day_params);
 
                 /* Adding the linearlayout vertical to the linearlayout horizontal
                  */
