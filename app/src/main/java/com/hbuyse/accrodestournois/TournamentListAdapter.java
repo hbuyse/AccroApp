@@ -1,4 +1,4 @@
-package com.flambaz.accrodestournois;
+package com.hbuyse.accrodestournois;
 
 import android.content.Context;
 import android.graphics.Typeface;

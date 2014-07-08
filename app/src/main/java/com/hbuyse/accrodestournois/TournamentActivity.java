@@ -1,25 +1,33 @@
-package com.flambaz.accrodestournois;
+package com.hbuyse.accrodestournois;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+public class TournamentActivity extends FragmentActivity {
 
-public class MainActivity extends Activity {
-    /* Called when the activity is first created.
-     */
-    public void onCreate(Bundle savedInstanceState) {
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        /* Get the message from the intent
+         */
+        Intent intent = getIntent();
+        String place_tournament = intent.getExtras().getString("place_tournament");
+        setTitle(place_tournament);
+
+
+        setContentView(R.layout.activity_tournament);
+
 
         /* Create the list fragment and add it as our sole content.
          */
-        if (getFragmentManager().findFragmentById(R.id.containerMain) == null) {
-            MainFragment list = new MainFragment();
-            getFragmentManager().beginTransaction().add(R.id.containerMain, list).commit();
+        if (getFragmentManager().findFragmentById(R.id.containerTournament) == null) {
+            TournamentFragment tournoi = new TournamentFragment();
+            getFragmentManager().beginTransaction().add(R.id.containerTournament, tournoi).commit();
         }
     }
 

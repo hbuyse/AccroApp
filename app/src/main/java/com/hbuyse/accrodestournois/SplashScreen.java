@@ -1,4 +1,4 @@
-package com.flambaz.accrodestournois;
+package com.hbuyse.accrodestournois;
 
 import android.app.ActionBar;
 import android.app.Activity;

@@ -1,4 +1,4 @@
-package com.flambaz.accrodestournois;
+package com.hbuyse.accrodestournois;
 
 /* You can find help at the address below :
  * http://hmkcode.com/android-custom-listview-items-row/

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flambaz.accrodestournois"
+    package="com.hbuyse.accrodestournois"
     android:versionCode="1"
     android:versionName="0.1b">
 
@@ -21,7 +21,7 @@
 
 
         <activity
-            android:name=".SplashScreen"
+            android:name="com.hbuyse.accrodestournois.SplashScreen"
             android:label="@string/app_name_bis" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,15 +31,15 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.hbuyse.accrodestournois.MainActivity"
             android:label="@string/title_tournament_list"
         />
 
 
         <activity
-            android:name=".TournamentActivity"
+            android:name="com.hbuyse.accrodestournois.TournamentActivity"
             android:label="@string/title_tournament"
-            android:parentActivityName="com.flambaz.accrodestournois.MainActivity">
+            android:parentActivityName="com.hbuyse.accrodestournois.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.flambaz.accrodestournois.MainActivity" />

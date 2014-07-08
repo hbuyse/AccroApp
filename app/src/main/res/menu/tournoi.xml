@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.flambaz.accrodestournois.TournoiActivity">
+    tools:context="com.hbuyse.accrodestournois.TournoiActivity">
 
     <item
         android:id="@+id/action_settings"

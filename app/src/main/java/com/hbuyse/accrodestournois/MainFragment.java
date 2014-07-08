@@ -1,4 +1,4 @@
-package com.flambaz.accrodestournois;
+package com.hbuyse.accrodestournois;
 
 import android.app.ListFragment;
 import android.app.ProgressDialog;
