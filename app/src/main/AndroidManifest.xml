@@ -40,9 +40,6 @@
             android:name="com.hbuyse.accrodestournois.TournamentActivity"
             android:label="@string/title_tournament"
             android:parentActivityName="com.hbuyse.accrodestournois.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.flambaz.accrodestournois.MainActivity" />
         </activity>
 
 
