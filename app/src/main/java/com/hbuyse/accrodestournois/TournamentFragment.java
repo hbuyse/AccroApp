@@ -592,7 +592,26 @@ public class TournamentFragment extends Fragment {
              */
             try {
                 webPage = Jsoup.connect(url_tournament).get();
-            } catch (IOException e) {
+            }
+            catch (java.net.SocketTimeoutException e){
+                e.printStackTrace();
+
+                /* Shutting down the progress dialog
+                 */
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                }
+            }
+            catch (java.net.SocketException e) {
+                e.printStackTrace();
+
+                /* Shutting down the progress dialog
+                 */
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                }
+            }
+            catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -604,13 +623,18 @@ public class TournamentFragment extends Fragment {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            this.parse();
-
             /* Stopping the progress dialog
              */
             if (mProgressDialog.isShowing()) {
+                this.parse();
                 mProgressDialog.dismiss();
             }
+            else {
+                Toast.makeText(getActivity(),
+                        R.string.internet_pb,
+                        Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }

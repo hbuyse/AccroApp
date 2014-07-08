@@ -5,7 +5,8 @@
     <color name="background_day">#FFFFFF</color>
     <color name="background_month">#0080FF</color>
     <color name="background_list">#FF8400</color>
-    <color name="background_row">#FAA90C</color>
+    <!--<color name="background_row">#FAA90C</color>-->
+    <color name="background_row">#fffabb10</color>
     <color name="title_splashscreen">#ffffd891</color>
 
     <!-- FONTS -->

@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,11 +128,24 @@ public class MainFragment extends ListFragment {
                     tournamentArrayList.add(new Tournament(place.text().toUpperCase(),
                             detail.text(), days, months, link, nbJour, surface));
                 }
-
             }
             catch (java.net.SocketTimeoutException e){
                 e.printStackTrace();
-                Log.e("TIMEOUT", "TournamentListFragment");
+
+                /* Shutting down the progress dialog
+                 */
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                }
+            }
+            catch (java.net.SocketException e) {
+                e.printStackTrace();
+
+                /* Shutting down the progress dialog
+                 */
+                if (mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                }
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -153,6 +165,11 @@ public class MainFragment extends ListFragment {
              */
             if (mProgressDialog.isShowing()) {
                 mProgressDialog.dismiss();
+            }
+            else {
+                Toast.makeText(getActivity(),
+                        R.string.internet_pb,
+                        Toast.LENGTH_LONG).show();
             }
 
 

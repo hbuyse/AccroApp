@@ -7,7 +7,6 @@
     <string name="website">http://www.accro-des-tournois.com</string>
     <string name="author">Created by Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
-    <string name="no_connection">You are not connected to Internet.\nTry later.</string>
 
 
     <!-- Tournament Activity -->
@@ -28,7 +27,6 @@
     <string name="mainProgress">Retrieving the list of tournaments</string>
     <string name="loading">Loading&#8230;</string>
     <string name="tournamentProgress">Retrieving the tournament</string>
-    <string name="timeout">Timeout</string>
 
 
     <!-- Tournoi Fragment -->
@@ -62,5 +60,9 @@
     <string name="grass">Grass</string>
     <string name="indoor">Indoor</string>
 
+    <!-- Internet issues -->
+    <string name="no_connection">You are not connected to Internet.\nPlease, try later.</string>
+    <string name="timeout">Timeout</string>
+    <string name="internet_pb">You encountered a problem durind the download.\nPlease, try later.</string>
 
 </resources>

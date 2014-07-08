@@ -6,7 +6,6 @@
     <string name="app_name_bis">Accro Des Tournois</string>
     <string name="author">Créée par Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
-    <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nRéessayer plus tard.</string>
 
 
     <!-- Tournament Activity -->
@@ -57,4 +56,8 @@
     <string name="beach">Beach</string>
     <string name="grass">Herbe</string>
     <string name="indoor">Intérieur</string>
+
+    <!-- Internet issues -->
+    <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nVeuillez réessayer plus tard.</string>
+    <string name="internet_pb">Vous avez rencontré un problème pendant le téléchargement.\nVeuillez réessayer plus tard.</string>
 </resources>

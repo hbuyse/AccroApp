@@ -47,6 +47,9 @@ public class MainActivity extends Activity {
 
             case R.id.refresh:
                 recreate();
+//                Fragment frag = getFragmentManager().findFragmentById(R.id.containerMain);
+//                frag.getFragmentManager().beginTransaction().detach(frag).commit();
+//                frag.getFragmentManager().beginTransaction().attach(frag).commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
