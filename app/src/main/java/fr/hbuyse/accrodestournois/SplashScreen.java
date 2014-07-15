@@ -1,10 +1,12 @@
-package com.hbuyse.accrodestournois;
+package fr.hbuyse.accrodestournois;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import fr.hbuyse.accrodestournois.R;
 
 public class SplashScreen extends Activity {
 

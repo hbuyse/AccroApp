@@ -1,4 +1,4 @@
-package com.hbuyse.accrodestournois;
+package fr.hbuyse.accrodestournois;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import fr.hbuyse.accrodestournois.R;
 
 public class TournamentListAdapter extends ArrayAdapter<Tournament> {
 

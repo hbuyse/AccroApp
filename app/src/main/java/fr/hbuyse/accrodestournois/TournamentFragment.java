@@ -1,4 +1,4 @@
-package com.hbuyse.accrodestournois;
+package fr.hbuyse.accrodestournois;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -26,6 +26,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+
+import fr.hbuyse.accrodestournois.R;
 
 public class TournamentFragment extends Fragment {
     private String url_tournament;

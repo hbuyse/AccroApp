@@ -1,10 +1,12 @@
-package com.hbuyse.accrodestournois;
+package fr.hbuyse.accrodestournois;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import fr.hbuyse.accrodestournois.R;
 
 
 public class MainActivity extends Activity {

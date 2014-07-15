@@ -1,4 +1,4 @@
-package com.hbuyse.accrodestournois;
+package fr.hbuyse.accrodestournois;
 
 import android.app.ListFragment;
 import android.app.ProgressDialog;
@@ -21,6 +21,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import fr.hbuyse.accrodestournois.R;
 
 public class MainFragment extends ListFragment {
     /* URL Address

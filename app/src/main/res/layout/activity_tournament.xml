@@ -3,5 +3,5 @@
     android:id="@+id/containerTournament"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hbuyse.accrodestournois.TournamentActivity"
+    tools:context="fr.hbuyse.accrodestournois.TournamentActivity"
     tools:ignore="MergeRootFrame" />
