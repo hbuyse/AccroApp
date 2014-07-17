@@ -52,10 +52,11 @@
 
     <!-- Type of tournament -->
     <string name="news">NOUVEAU</string>
-    <string name="full">PLEIN</string>
+    <string name="full">COMPLET</string>
     <string name="beach">Beach</string>
     <string name="grass">Herbe</string>
     <string name="indoor">Intérieur</string>
+    <string name="night">Nocturne</string>
 
     <!-- Internet issues -->
     <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nVeuillez réessayer plus tard.</string>

@@ -10,7 +10,6 @@ TODO
     * Showing the triangle which show the type of surface of the tournament (No triangle but a textView)
     * Showing the FULL rectangle if the tournament is full (No rectangle but a textView)
     * Maybe change the background of the row to tell the user that it is full (background_cell = red) or new (background_cell = ???)
-    * Add the night caracteristic to the list view
 
 Author
 ------

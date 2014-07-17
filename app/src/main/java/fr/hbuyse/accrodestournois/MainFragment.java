@@ -127,7 +127,7 @@ public class MainFragment extends ListFragment {
 
                     int nbJour = i.select("div[class=calendrierjour]").size();
 
-                    tournamentArrayList.add(new Tournament(place.text().toUpperCase(),
+                    tournamentArrayList.add(new Tournament(getActivity(), place.text().toUpperCase(),
                             detail.text(), days, months, link, nbJour, surface));
                 }
             }

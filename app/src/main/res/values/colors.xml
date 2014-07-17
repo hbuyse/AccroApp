@@ -7,6 +7,8 @@
     <color name="background_list">#FF8400</color>
     <!--<color name="background_row">#FAA90C</color>-->
     <color name="background_row">#fffabb10</color>
+    <color name="background_full">#e95f89</color>
+    <color name="background_new">#bbbbbb</color>
     <color name="title_splashscreen">#ffffd891</color>
 
     <!-- FONTS -->

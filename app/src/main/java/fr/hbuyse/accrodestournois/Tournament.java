@@ -4,9 +4,12 @@ package fr.hbuyse.accrodestournois;
  * http://hmkcode.com/android-custom-listview-items-row/
  */
 
+import android.content.Context;
+
 import org.jsoup.select.Elements;
 
 public class Tournament {
+    private Context context;
     private String place;
     private String detail;
     private Elements days;
@@ -17,7 +20,7 @@ public class Tournament {
 
 
     public Tournament() {
-        super();
+        this.context = null;
         this.place = null;
         this.detail = null;
         this.days = null;
@@ -29,8 +32,8 @@ public class Tournament {
 
     /* Parametered constructor : allow to pass all the informations necessary that we show in the row of the ListView
      */
-    public Tournament(String place, String detail, Elements days, Elements months, String link, int nbday, String surface) {
-        super();
+    public Tournament(Context context, String place, String detail, Elements days, Elements months, String link, int nbday, String surface) {
+        this.context = context;
         this.place = place;
         this.detail = detail;
         this.days = days;
@@ -67,36 +70,41 @@ public class Tournament {
         return this.nbday;
     }
 
-    public int getType() {
-        if (surface.equals("sand")) {
-            return 1;
+    public String getSurfaceAndCarac() {
+        String tmp = "";
+
+        /* Type of surface
+         */
+        if (surface.contains("sand")) {
+            tmp += this.context.getResources().getString(R.string.beach);
         }
-        else if (surface.equals("sand-new")) {
-            return 2;
+        else if (surface.contains("indoor")) {
+            tmp += this.context.getResources().getString(R.string.indoor);
         }
-        else if (surface.equals("sand-full")) {
-            return 3;
+        else if (surface.contains("grass")) {
+            tmp += this.context.getResources().getString(R.string.grass);
         }
-        else if (surface.equals("grass")) {
-            return 4;
+
+        /* Nocturnal?
+         */
+        if (surface.contains("nuit")) {
+            tmp += " - " + this.context.getResources().getString(R.string.night);
         }
-        else if (surface.equals("grass-new")) {
-            return 5;
+
+        /* New tournament?
+         */
+        if (surface.contains("new")) {
+            tmp += " - " + this.context.getResources().getString(R.string.news);
         }
-        else if (surface.equals("grass-full")) {
-            return 6;
+
+        /* Is there still place?
+         */
+        if (surface.contains("complet")) {
+            tmp += " - " + this.context.getResources().getString(R.string.full);
         }
-        else if (surface.equals("indoor")) {
-            return 7;
-        }
-        else if (surface.equals("indoor-new")) {
-            return 8;
-        }
-        else if (surface.equals("indoor-full")) {
-            return 9;
-        }
-        else {
-            return 0;
-        }
+
+        /* Return the temporary string
+         */
+        return tmp;
     }
 }

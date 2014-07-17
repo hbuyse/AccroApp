@@ -59,6 +59,7 @@
     <string name="beach">Beach</string>
     <string name="grass">Grass</string>
     <string name="indoor">Indoor</string>
+    <string name="night">Nocturnal</string>
 
     <!-- Internet issues -->
     <string name="no_connection">You are not connected to Internet.\nPlease, try later.</string>
