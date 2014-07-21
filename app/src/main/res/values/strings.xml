@@ -3,10 +3,8 @@
 
     <!-- Application Specificity -->
     <string name="app_name">Accro Des Tournois</string>
-    <string name="app_name_bis">Accro Des Tournois</string>
     <string name="website">http://www.accro-des-tournois.com</string>
     <string name="author">Created by Henri BUYSE</string>
-    <string name="helloWorld">Hello world!</string>
 
 
     <!-- Tournament Activity -->
@@ -31,22 +29,9 @@
 
 
     <!-- Tournoi Fragment -->
-    <string name="subtitleTournament">Tournament name</string>
-    <string name="variousInfos">Type of surface and type of tournament</string>
     <string name="publisher">Tournament published by</string>
-
-
-    <!-- Additional informations -->
     <string name="additionalInfo">Additional informations</string>
-    <string name="infos">Beginning hour of the tournament\nFoo bar</string>
-
-
-    <!-- CONTACT -->
     <string name="contact">Contact</string>
-    <string name="contactName">Name of the contact</string>
-    <string name="contactPhone">06 00 00 00 00</string>
-    <string name="contactWebsite">Tournament website</string>
-    <string name="contactMail">Send a message</string>
 
 
     <!-- Title Activity -->
@@ -60,15 +45,28 @@
     <string name="dev_name">Henri BUYSE</string>
     <string name="dev_job">Developer of the application</string>
     <string name="dev_mail">henri.buyse@gmail.com</string>
+    <string name="dev_mail_addr">mailto:henri.buyse@gmail.com</string>
     <string name="desc_dev_mail">Developer e-mail address</string>
     <string name="dev_github">hbuyse</string>
-    <string name="desc_github_mail">Developer Github address</string>
-    <string name="desc_adt">Accro des tournois is the referencing website for french volleyball tournaments. Publish your tournaments, as an organizer or participant!</string>
+    <string name="desc_github_addr">Developer Github</string>
+    <string name="dev_github_addr">https://github.com/hbuyse</string>
+    <string name="desc_why">If you have any issue with the app or maybe you want to ask for an
+        improvement. Please send me an email, I will see what I can do.\nYou can also follow my work
+        on GitHub!</string>
+    <string name="desc_adt">Accro des tournois is the referencing website for french volleyball
+        tournaments. Publish your tournaments, as an organizer or participant!</string>
     <string name="facebook_adt">Facebook</string>
+    <string name="facebook_addr">https://www.facebook.com/AccroTournoisVB</string>
     <string name="twitter_adt">Twitter</string>
+    <string name="twitter_addr">https://twitter.com/Accro_tournois</string>
     <string name="googleplus_adt">Google +</string>
+    <string name="googleplus_addr">https://plus.google.com/</string>
     <string name="website_adt">Website</string>
+    <string name="website_addr">http://www.accro-des-tournois.com</string>
     <string name="email_adt">E-mail</string>
+    <string name="email_addr">mailto:?subject=Awesome ! Accro des tournois&amp;body=Look at
+        this website : http://www.accro-des-tournois.com</string>
+    <string name="licence">Open-sourced application under MIT License</string>
 
 
     <!-- Type of tournament -->
@@ -85,6 +83,5 @@
     <string name="timeout">Timeout</string>
     <string name="internet_pb">You encountered a problem durind the download.\nPlease, try later.</string>
     <string name="title_activity_contact">Contact</string>
-    <string name="hello_world">Hello world!</string>
 
 </resources>

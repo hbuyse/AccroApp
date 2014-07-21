@@ -3,7 +3,6 @@
 
     <!-- Application Specificity -->
     <string name="author">Créée par Henri BUYSE</string>
-    <string name="helloWorld">Hello world!</string>
 
 
     <!-- Tournament Activity -->
@@ -24,24 +23,8 @@
 
 
     <!-- Tournoi Fragment -->
-    <string name="subtitleTournament">Titre du tournoi</string>
-    <string name="variousInfos">Type de terrain et type de tournoi</string>
     <string name="publisher">Tournoi publié par</string>
-
-
-    <!-- INFORMATIONS COMPLÉMENTAIRES -->
     <string name="additionalInfo">Infos complémentaires</string>
-    <string name="infos">
-        Heure de début de tournoi\nToto
-    </string>
-
-
-    <!-- CONTACT -->
-    <string name="contact">Contact</string>
-    <string name="contactName">Nom du contact</string>
-    <string name="contactPhone">06 00 00 00 00</string>
-    <string name="contactWebsite">Site du tournoi</string>
-    <string name="contactMail">Envoyer un message</string>
 
 
     <!-- Title Activity -->
@@ -50,7 +33,16 @@
 
     <!-- Contact activity -->
     <string name="dev_job">Développeur de l\'application</string>
-    <string name="desc_adt">Accro des tournois est le site de référencement de vos tournois de volleyball. Publiez vos tournois, que vous soyez organisateur ou simple participant !</string>
+    <string name="desc_why">Si vous avez un quelconque problème avec l\'application ou bien si vous
+        avez des suggestions d\'amélioration, envoyez-moi un mail et je verrai ce que je peux
+        faire.\nVous pouvez aussi suivre mon travail sur Github!
+        </string>
+    <string name="desc_adt">Accro des tournois est le site de référencement de vos tournois de
+        volleyball. Publiez vos tournois, que vous soyez organisateur ou simple participant !
+    </string>
+    <string name="email_addr">mailto:?subject=Whaou ! Accro des tournois&amp;body=Viens jeter un
+        oeil à ce super site : http://www.accro-des-tournois.com</string>
+    <string name="licence">Application open-souce sous licence MIT</string>
 
 
     <!-- Type of tournament -->

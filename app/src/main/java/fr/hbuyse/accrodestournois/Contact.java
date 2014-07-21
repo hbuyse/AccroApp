@@ -1,62 +1,120 @@
 package fr.hbuyse.accrodestournois;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import fr.hbuyse.accrodestournois.R;
+import android.widget.TableRow;
 
 public class Contact extends Activity {
+
+    TableRow em_hb;
+    TableRow gh_hb;
+
+    ImageView fb;
+    ImageView tw;
+    ImageView gp;
+    ImageView em;
+    ImageView wb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
-        View.OnClickListener click = new View.OnClickListener() {
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        em_hb = (TableRow)  findViewById(R.id.email_hb);
+        gh_hb = (TableRow)  findViewById(R.id.github_hb);
 
+        fb    = (ImageView) findViewById(R.id.facebook_adt);
+        tw    = (ImageView) findViewById(R.id.twitter_adt);
+        gp    = (ImageView) findViewById(R.id.googleplus_adt);
+        em    = (ImageView) findViewById(R.id.email_adt);
+        wb    = (ImageView) findViewById(R.id.website_adt);
 
+        em_hb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.addCategory(Intent.CATEGORY_BROWSABLE);
-
-                switch(view.getId()){
-                    case R.id.facebook_adt:
-
-                        break;
-                    case R.id.twitter_adt:
-                        break;
-                    case R.id.googleplus_adt:
-                        break;
-                    case R.id.email_adt:
-                        break;
-                    case R.id.website_adt:
-                        break;
-                    case R.id.email_hb:
-                        break;
-                    case R.id.github_hb:
-                        break;
-                }
-
+                i.setData(Uri.parse(getResources().getString(R.string.dev_mail_addr)));
                 startActivity(i);
             }
-        }
+        });
+
+        gh_hb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.dev_github_addr)));
+                startActivity(i);
+            }
+        });
+
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.facebook_addr)));
+                startActivity(i);
+            }
+        });
+
+        tw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.twitter_addr)));
+                startActivity(i);
+            }
+        });
+
+        gp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.googleplus_addr)));
+                startActivity(i);
+            }
+        });
+
+        em.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.email_addr)));
+                startActivity(i);
+            }
+        });
+
+        wb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+                i.setData(Uri.parse(getResources().getString(R.string.website_addr)));
+                startActivity(i);
+            }
+        });
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,12 +128,15 @@ public class Contact extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                return true;
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
-
-    public boolean
 }
