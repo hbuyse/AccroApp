@@ -59,7 +59,8 @@
         Publish your tournaments, as an organizer or participant!
     </string>
     <string name="facebook_adt">Facebook</string>
-    <string name="facebook_addr">https://www.facebook.com/AccroTournoisVB</string>
+    <string name="facebook_addr">fb://profile/187301651296069</string>
+    <string name="facebook_addr2">https://facebook.com/AccroTournoisVB</string>
     <string name="twitter_adt">Twitter</string>
     <string name="twitter_addr">https://twitter.com/Accro_tournois</string>
     <string name="googleplus_adt">Google +</string>

@@ -63,8 +63,15 @@ public class Contact extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.addCategory(Intent.CATEGORY_BROWSABLE);
-                i.setData(Uri.parse(getResources().getString(R.string.facebook_addr)));
-                startActivity(i);
+                try {
+                    i.setData(Uri.parse(getResources().getString(R.string.facebook_addr)));
+                    startActivity(i);
+                }
+                catch (android.content.ActivityNotFoundException e) {
+                    i.setData(Uri.parse(getResources().getString(R.string.facebook_addr2)));
+                    startActivity(i);
+                }
+
             }
         });
 
