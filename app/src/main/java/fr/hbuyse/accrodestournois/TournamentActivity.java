@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import fr.hbuyse.accrodestournois.R;
-
 public class TournamentActivity extends FragmentActivity {
 
     @Override
@@ -58,6 +56,12 @@ public class TournamentActivity extends FragmentActivity {
             case R.id.refresh:
                 recreate();
                 return true;
+
+            case R.id.contactMenu:
+                Intent i = new Intent(this, Contact.class);
+                startActivity(i);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 

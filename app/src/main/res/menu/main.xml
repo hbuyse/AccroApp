@@ -4,10 +4,16 @@
 
     <item
         android:id="@+id/refresh"
-        android:orderInCategory="100"
+        android:orderInCategory="0"
         android:icon="@drawable/ic_action_refresh"
         android:showAsAction="ifRoom"
         android:title="@string/refresh" />
+
+    <item
+        android:id="@+id/contactMenu"
+        android:orderInCategory="10"
+        android:icon="@drawable/ic_action_refresh"
+        android:title="@string/contact" />
 
     <!--<item-->
         <!--android:id="@+id/action_settings"-->

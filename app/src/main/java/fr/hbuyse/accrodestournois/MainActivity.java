@@ -1,12 +1,11 @@
 package fr.hbuyse.accrodestournois;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import fr.hbuyse.accrodestournois.R;
 
 
 public class MainActivity extends Activity {
@@ -49,10 +48,13 @@ public class MainActivity extends Activity {
 
             case R.id.refresh:
                 recreate();
-//                Fragment frag = getFragmentManager().findFragmentById(R.id.containerMain);
-//                frag.getFragmentManager().beginTransaction().detach(frag).commit();
-//                frag.getFragmentManager().beginTransaction().attach(frag).commit();
                 return true;
+
+            case R.id.contactMenu:
+                Intent i = new Intent(this, Contact.class);
+                startActivity(i);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
