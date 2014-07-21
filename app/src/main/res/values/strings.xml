@@ -50,11 +50,14 @@
     <string name="dev_github">hbuyse</string>
     <string name="desc_github_addr">Developer Github</string>
     <string name="dev_github_addr">https://github.com/hbuyse</string>
-    <string name="desc_why">If you have any issue with the app or maybe you want to ask for an
-        improvement. Please send me an email, I will see what I can do.\nYou can also follow my work
-        on GitHub!</string>
-    <string name="desc_adt">Accro des tournois is the referencing website for french volleyball
-        tournaments. Publish your tournaments, as an organizer or participant!</string>
+    <string name="desc_why">
+        If you have any issue with the app or you thought about an improvement.
+        Please send me an email, I will see what I can do.\nYou can also follow my work on GitHub!
+    </string>
+    <string name="desc_adt">
+        Accro des tournois is the referencing website for french volleyball tournaments.
+        Publish your tournaments, as an organizer or participant!
+    </string>
     <string name="facebook_adt">Facebook</string>
     <string name="facebook_addr">https://www.facebook.com/AccroTournoisVB</string>
     <string name="twitter_adt">Twitter</string>
