@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:keepScreenOn="true"
-            android:text="@string/app_name_bis"
+            android:text="@string/app_name"
             android:textColor="@color/title_splashscreen"
             android:textSize="50sp"
             android:textStyle="bold" />

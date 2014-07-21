@@ -2,8 +2,6 @@
 <resources>
 
     <!-- Application Specificity -->
-    <string name="app_name">AccroDesTournois</string>
-    <string name="app_name_bis">Accro Des Tournois</string>
     <string name="author">Créée par Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
 
@@ -48,6 +46,11 @@
 
     <!-- Title Activity -->
     <string name="title_tournament">Tournoi</string>
+
+
+    <!-- Contact activity -->
+    <string name="dev_job">Développeur de l\'application</string>
+    <string name="desc_adt">Accro des tournois est le site de référencement de vos tournois de volleyball. Publiez vos tournois, que vous soyez organisateur ou simple participant !</string>
 
 
     <!-- Type of tournament -->

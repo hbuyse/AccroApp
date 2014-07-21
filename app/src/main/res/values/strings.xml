@@ -2,11 +2,12 @@
 <resources>
 
     <!-- Application Specificity -->
-    <string name="app_name">AccroDesTournois</string>
+    <string name="app_name">Accro Des Tournois</string>
     <string name="app_name_bis">Accro Des Tournois</string>
     <string name="website">http://www.accro-des-tournois.com</string>
     <string name="author">Created by Henri BUYSE</string>
     <string name="helloWorld">Hello world!</string>
+
 
     <!-- Tournament Activity -->
     <string name="tournamentDate">Tournament date</string>
@@ -16,24 +17,29 @@
     <string name="sizeMonth">Jun</string>
     <string name="surface">Surface</string>
 
+
     <!-- Menu Button -->
     <string name="action_settings">Settings</string>
     <string name="refresh">Refresh</string>
     <string name="support">Support</string>
+
 
     <!-- ProgressDialog -->
     <string name="mainProgress">Retrieving the list of tournaments</string>
     <string name="loading">Loading…</string>
     <string name="tournamentProgress">Retrieving the tournament</string>
 
+
     <!-- Tournoi Fragment -->
     <string name="subtitleTournament">Tournament name</string>
     <string name="variousInfos">Type of surface and type of tournament</string>
     <string name="publisher">Tournament published by</string>
 
-    <!-- INFORMATIONS COMPLÉMENTAIRES -->
+
+    <!-- Additional informations -->
     <string name="additionalInfo">Additional informations</string>
     <string name="infos">Beginning hour of the tournament\nFoo bar</string>
+
 
     <!-- CONTACT -->
     <string name="contact">Contact</string>
@@ -42,10 +48,28 @@
     <string name="contactWebsite">Tournament website</string>
     <string name="contactMail">Send a message</string>
 
+
     <!-- Title Activity -->
     <string name="title_tournament_list">Accro Des Tournois</string>
     <string name="title_activity_main">SplashScreen</string>
     <string name="description_ic_launcher">Volley Ball</string>
+
+
+    <!-- Contact activity -->
+    <string name="dev_photo">Developer photo</string>
+    <string name="dev_name">Henri BUYSE</string>
+    <string name="dev_job">Developer of the application</string>
+    <string name="dev_mail">henri.buyse@gmail.com</string>
+    <string name="desc_dev_mail">Developer e-mail address</string>
+    <string name="dev_github">hbuyse</string>
+    <string name="desc_github_mail">Developer Github address</string>
+    <string name="desc_adt">Accro des tournois is the referencing website for french volleyball tournaments. Publish your tournaments, as an organizer or participant!</string>
+    <string name="facebook_adt">Facebook</string>
+    <string name="twitter_adt">Twitter</string>
+    <string name="googleplus_adt">Google +</string>
+    <string name="website_adt">Website</string>
+    <string name="email_adt">E-mail</string>
+
 
     <!-- Type of tournament -->
     <string name="news">NEW</string>
@@ -54,6 +78,7 @@
     <string name="grass">Grass</string>
     <string name="indoor">Indoor</string>
     <string name="night">Nocturnal</string>
+
 
     <!-- Internet issues -->
     <string name="no_connection">You are not connected to Internet.\nPlease, try later.</string>

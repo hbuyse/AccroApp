@@ -3,6 +3,8 @@ package fr.hbuyse.accrodestournois;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import fr.hbuyse.accrodestournois.R;
 
@@ -19,12 +23,39 @@ public class Contact extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
+
+        View.OnClickListener click = new View.OnClickListener() {
+
+
+
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.addCategory(Intent.CATEGORY_BROWSABLE);
+
+                switch(view.getId()){
+                    case R.id.facebook_adt:
+
+                        break;
+                    case R.id.twitter_adt:
+                        break;
+                    case R.id.googleplus_adt:
+                        break;
+                    case R.id.email_adt:
+                        break;
+                    case R.id.website_adt:
+                        break;
+                    case R.id.email_hb:
+                        break;
+                    case R.id.github_hb:
+                        break;
+                }
+
+                startActivity(i);
+            }
         }
     }
+
 
 
     @Override
@@ -46,19 +77,5 @@ public class Contact extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
-            return rootView;
-        }
-    }
+    public boolean
 }
