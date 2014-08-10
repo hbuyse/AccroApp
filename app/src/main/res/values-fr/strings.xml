@@ -80,4 +80,32 @@ along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
     <!-- Internet issues -->
     <string name="no_connection">Vous n\'êtes pas connecté à Internet.\nVeuillez réessayer plus tard.</string>
     <string name="internet_pb">Vous avez rencontré un problème pendant le téléchargement.\nVeuillez réessayer plus tard.</string>
+
+    <!-- List of all the regions in France, the new tournaments and all Tournaments -->
+    <string-array name="regions">
+        <item>Tous</item>
+        <item>Nouveaux</item>
+        <item>Alsace</item>
+        <item>Aquitaine</item>
+        <item>Auvergne</item>
+        <item>Basse-Normandie</item>
+        <item>Bourgogne</item>
+        <item>Bretagne</item>
+        <item>Centre</item>
+        <item>Champagne-Ardenne</item>
+        <item>Corse</item>
+        <item>Franche-Comté</item>
+        <item>Haute-Normandie</item>
+        <item>Île-de-France</item>
+        <item>Languedoc-Roussillon</item>
+        <item>Limousin</item>
+        <item>Lorraine</item>
+        <item>Midi-Pyrénées</item>
+        <item>Nord-Pas-de-Calais</item>
+        <item>Pays de la Loire</item>
+        <item>Picardie</item>
+        <item>Poitou-Charentes</item>
+        <item>Provence-Alpes-Côte d'Azur</item>
+        <item>Rhône-Alpes</item>
+    </string-array>
 </resources>

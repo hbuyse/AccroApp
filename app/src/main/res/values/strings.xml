@@ -105,4 +105,59 @@ along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
 
+    <!-- List of all the regions in France, the new tournaments and all Tournaments -->
+    <string-array name="regions">
+        <item>All</item>
+        <item>New</item>
+        <item>Alsace</item>
+        <item>Aquitaine</item>
+        <item>Auvergne</item>
+        <item>Basse-Normandie</item>
+        <item>Bourgogne</item>
+        <item>Bretagne</item>
+        <item>Centre</item>
+        <item>Champagne-Ardenne</item>
+        <item>Corse</item>
+        <item>Franche-Comté</item>
+        <item>Haute-Normandie</item>
+        <item>Île-de-France</item>
+        <item>Languedoc-Roussillon</item>
+        <item>Limousin</item>
+        <item>Lorraine</item>
+        <item>Midi-Pyrénées</item>
+        <item>Nord-Pas-de-Calais</item>
+        <item>Pays de la Loire</item>
+        <item>Picardie</item>
+        <item>Poitou-Charentes</item>
+        <item>Provence-Alpes-Côte d'Azur</item>
+        <item>Rhône-Alpes</item>
+    </string-array>
+
+    <string-array name="url_number">
+        <item>index.html</item>
+        <item>index.html</item>
+        <item>index.html/7/alsace</item>
+        <item>index.html/8/aquitaine</item>
+        <item>index.html/9/auvergne</item>
+        <item>index.html/12/basse-normandie</item>
+        <item>index.html/10/bourgogne</item>
+        <item>index.html/11/bretagne</item>
+        <item>index.html/13/centre</item>
+        <item>index.html/14/champagne-ardenne</item>
+        <item>index.html/1/corse</item>
+        <item>index.html/16/franche-comte</item>
+        <item>index.html/15/haute-normandie</item>
+        <item>index.html/17/ile-de-france</item>
+        <item>index.html/4/languedoc-roussillon</item>
+        <item>index.html/6/limousin</item>
+        <item>index.html/18/lorraine</item>
+        <item>index.html/5/midi-pyrenees</item>
+        <item>index.html/19/nord-pas-de-calais</item>
+        <item>index.html/20/pays-de-la-loire</item>
+        <item>index.html/21/picardie</item>
+        <item>index.html/22/poitou-charentes</item>
+        <item>index.html/2/paca</item>
+        <item>index.html/3/rhone-alpes</item>
+    </string-array>
+
 </resources>
