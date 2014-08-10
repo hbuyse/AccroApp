@@ -33,8 +33,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import fr.hbuyse.accrodestournois.R;
-
 public class TournamentListAdapter extends ArrayAdapter<Tournament> {
 
     private final Context context;
@@ -110,6 +108,13 @@ public class TournamentListAdapter extends ArrayAdapter<Tournament> {
 
             if (surfaceView != null && !i.getSurfaceAndCarac().isEmpty()) {
                 surfaceView.setText(i.getSurfaceAndCarac());
+            }
+
+            if (i.isFull()) {
+                rowView.setBackgroundResource(R.drawable.item_shape_full);
+            }
+            else {
+                rowView.setBackgroundResource(R.drawable.item_shape_normal);
             }
 
             /* Adding the different day and month

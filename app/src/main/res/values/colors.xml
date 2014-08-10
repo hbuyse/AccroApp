@@ -29,7 +29,7 @@ along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
     <color name="background_list">#FF8400</color>
     <!--<color name="background_row">#FAA90C</color>-->
     <color name="background_row">#fffabb10</color>
-    <color name="background_full">#e95f89</color>
+    <color name="background_full">#ffe92b00</color>
     <color name="background_new">#bbbbbb</color>
     <color name="title_splashscreen">#ffffd891</color>
 
@@ -37,6 +37,7 @@ along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
     <color name="font_month">#FFFFFF</color>
     <color name="font_day">#0080FF</color>
     <color name="font">#474747</color>
+    <color name="font_full">#ffe92b00</color>
 
     <!-- BASIC COLOR -->
     <color name="white">#FFFFFF</color>
