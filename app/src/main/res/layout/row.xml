@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!--
 AccroDesTournois : list all the volleyball tournaments of the french
 website Accro Des Tournois (http://www.accro-des-tournois.com)
@@ -18,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<?xml version="1.0" encoding="utf-8"?>
+
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
