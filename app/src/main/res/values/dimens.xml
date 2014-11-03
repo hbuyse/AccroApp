@@ -52,4 +52,6 @@ along with AccroDesTournois.  If not, see <http://www.gnu.org/licenses/>.
     <dimen name="paddingContactTournament">7dip</dimen>
     <dimen name="roundedCorner">5dip</dimen>
     <dimen name="borderSize">2px</dimen>
+    <dimen name="navigation_drawer_width">240dp</dimen>
+
 </resources>

@@ -25,6 +25,7 @@ package fr.hbuyse.accrodestournois;
  */
 
 import android.content.Context;
+import android.util.Log;
 
 import org.jsoup.select.Elements;
 
@@ -88,6 +89,11 @@ public class Tournament {
 
     public int getNbDay() {
         return this.nbday;
+    }
+
+    public boolean isFull() {
+        Log.i("FULL", getPlace() + String.valueOf(surface.contains("complet")));
+        return surface.contains("complet");
     }
 
     public String getSurfaceAndCarac() {
